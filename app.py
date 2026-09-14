@@ -22,7 +22,7 @@ Streamlit para presentar y analizar indicadores relacionados con
 el proceso de despacho. La aplicación busca facilitar la visualización
 de información y el seguimiento de los principales indicadores.
 """)
- st.subheader("Descripcion del proyecto")
+ st.subheader("Tecnologias utilizadas")
  st.markdown("""
 - 🐍 Python
 - 📊 Streamlit
