@@ -23,18 +23,12 @@ el proceso de despacho. La aplicación busca facilitar la visualización
 de información y el seguimiento de los principales indicadores.
 """)
  st.subheader("Tecnologias utilizadas")
-
- st.subheader("Tecnologias utilizadas")
-
-st.markdown("""
+  st.markdown("""
 🐍 Python
 📊 Streamlit
 📈 Pandas
 📉 Matplotlib
 """)
-  
-  
-
 
 elif contenido ==("Ejerccio 1"):
   st.write("Te encuentras en el modulo de Ejerccio 1")
