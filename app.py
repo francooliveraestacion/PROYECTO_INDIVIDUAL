@@ -10,8 +10,11 @@ if contenido =="Home":
   st.subheader("Estudiante")
   st.write ("Franco Olivera Estacion")
   st.write("Modulo: Python Fundamentals")
-  st.write("Año 2026")
+  st.write("Año:2026")
   st.subheader("Informacion general")
+  st.write("Estudiante de Ingeniería Industrial orientado al análisis de datos,
+automatización y mejora de procesos.
+")
   
   
 
