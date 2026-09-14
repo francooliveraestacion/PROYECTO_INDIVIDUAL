@@ -16,7 +16,12 @@ if contenido =="Home":
 automatización y mejora de procesos.
 """)
   st.subheader("Descripcion del proyecto")
-
+  st.write("""
+El proyecto consiste en desarrollar una aplicación web utilizando
+Streamlit para presentar y analizar indicadores relacionados con
+el proceso de despacho. La aplicación busca facilitar la visualización
+de información y el seguimiento de los principales indicadores.
+""")
   
   
 
