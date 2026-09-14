@@ -8,7 +8,7 @@ contenido=st.sidebar.selectbox("",["Home","Ejerccio 1","Ejerccio 2",
 
 if contenido =="Home":
   st.write("Te encuentras em el modulo de home")
-  st.subheaher("Estudiante")
+  st.subheader("Estudiante")
 
 
 elif contenido ==("Ejerccio 1"):
