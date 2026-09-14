@@ -24,11 +24,13 @@ de información y el seguimiento de los principales indicadores.
 """)
  st.subheader("Tecnologias utilizadas")
 
- st.markdown("""
-  🐍 Python
-  📊 Streamlit
-  📈 Pandas
-  📉 Matplotlib
+ st.subheader("Tecnologias utilizadas")
+
+st.markdown("""
+🐍 Python
+📊 Streamlit
+📈 Pandas
+📉 Matplotlib
 """)
   
   
