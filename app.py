@@ -19,7 +19,7 @@ elif contenido ==("Ejerccio 2"):
 elif contenido ==("Ejerccio 3"):
   st.write("Te encuentras em el modulo de Ejerccio 3")
 
-else  contenido ==("Ejerccio 4 "):
+else:
   st.write("Te encuentras em el modulo de Ejerccio 4")
 
 
