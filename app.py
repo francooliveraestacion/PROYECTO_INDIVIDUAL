@@ -15,6 +15,8 @@ if contenido =="Home":
   st.write("""Estudiante de Ingeniería Industrial orientado al análisis de datos,
 automatización y mejora de procesos.
 """)
+  st.subheader("Descripcion del proyecto")
+
   
   
 
