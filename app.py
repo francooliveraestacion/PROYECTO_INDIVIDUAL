@@ -44,8 +44,7 @@ el total de gastos y el saldo final.
     st.session_state.movimientos = []
     concepto=st.text_input("Concepto")
     tipo=st.selectbox("Tipo de movimiento:",
-                      {"Ingreso". Gasto"]
-    
+                      {"Ingreso","Gasto"]
     
     
 elif contenido ==("Ejerccio 2"):
