@@ -46,7 +46,7 @@ el total de gastos y el saldo final.
     tipo=st.selectbox("Tipo de movimiento:",
                       ["Ingreso","Gasto"])
     valor=st.text_input("Valor,min_value==0.0,step=0.01")
-    if st.botton("Agregar un boton"):
+    if st.button("Agregar un boton"):
       if concepto == "":
         st.warning("Ingrese un concepto")
 
