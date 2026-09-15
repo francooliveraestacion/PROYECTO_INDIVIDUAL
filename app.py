@@ -62,6 +62,7 @@ el total de gastos y el saldo final.
      st.dataframe(df)
      total_ingresos = df.loc[df["tipo"] =="ingreso","valor"].sum()
      total_gastos = df.loc[df["Tipo"] == "Gasto","Valor"].sum()
+     saldo_final = total_ingresos - total_gastos
       
      
 
