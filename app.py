@@ -42,7 +42,7 @@ el total de gastos y el saldo final.
   
   if "movimientos" not in st.session_state:
     st.session_state.movimientos = []
-    concepto=st.texto_input("Concepto")
+    concepto=st.text_input("Concepto")
     
     
     
