@@ -44,7 +44,7 @@ el total de gastos y el saldo final.
     st.session_state.movimientos = []
     concepto=st.text_input("Concepto")
     tipo=st.selectbox("Tipo de movimiento:",
-                      ["ingreso","Gasto"])
+                      ["Ingreso","Gasto"])
     valor=st.text_input("Valor,min_value==0.0,step=0.01")
     if st.button("Agregar un boton"):
       if concepto == "":
@@ -60,7 +60,7 @@ el total de gastos y el saldo final.
     st.subheader("Movimientos registrados")
     if len(st.session_state.movimientos) > 0:
      st.dataframe(df)
-     total_ingreso = df.loc[df["tipo"] =="ingreso","valor"].sum()
+     total_ingreso = df.loc[df["tipo"] == "Ingreso","valor"].sum()
      total_gasto = df.loc[df["Tipo"] == "Gasto","Valor"].sum()
      saldo_final = total_ingreso - total_gasto
       
