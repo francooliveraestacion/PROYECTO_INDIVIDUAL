@@ -74,6 +74,14 @@ el total de gastos y el saldo final.
       
     with col3:
        st.metric("Saldo final", f"S/ {saldo_final:.2f}")
+      
+      if saldo_final >= 0:
+        st.success("El flujo de caja está a favor.")
+      else:
+        st.error("El flujo de caja está en contra.")
+
+    else:
+        st.info("Aún no hay movimientos registrados.")
        
 
       
