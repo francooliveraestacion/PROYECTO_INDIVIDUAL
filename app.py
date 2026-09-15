@@ -32,7 +32,7 @@ de información y el seguimiento de los principales indicadores.
 """)
 elif contenido ==("Ejerccio 1"):
   st.write("Te encuentras en el modulo de Ejerccio 1")
-  st.subheades("Flujo de caja")
+  st.subheader("Flujo de caja")
   
 
 elif contenido ==("Ejerccio 2"):
