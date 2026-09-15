@@ -61,6 +61,7 @@ el total de gastos y el saldo final.
     if len(st.session_state.movimientos) > 0:
      st.dataframe(df)
      total_ingresos = df.loc[df["tipo"] =="ingreso","valor"].sum()
+     total_gastos = df.loc[df["Tipo"] == "Gasto","Valor"].sum()
       
      
 
