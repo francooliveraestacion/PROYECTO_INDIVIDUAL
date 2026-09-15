@@ -79,12 +79,11 @@ el total de gastos y el saldo final.
     with col3:
         st.metric("Saldo final", f"S/ {saldo_final:.2f}")
 
-else:
+    else:
     st.info("No hay movimientos registrados.")
     
    
-      
-    
+          
 elif contenido ==("Ejerccio 2"):
   st.write("Te encuentras en el modulo de Ejerccio 2")
 
