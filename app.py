@@ -67,7 +67,7 @@ el total de gastos y el saldo final.
     st.subheader("Resultado del flujo de caja")
     col1, col2, col3 = st.columns(3)
     with col1:
-        st.metric("Total de ingresos", f" {total_ingreso:.2f}")
+        st.metric(f"Total de ingresos:",  {total_ingreso:.2f}")
 
       
      
