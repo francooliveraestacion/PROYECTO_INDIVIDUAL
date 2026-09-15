@@ -42,6 +42,9 @@ el total de gastos y el saldo final.
   
   if "movimientos" not in st.session_state:
     st.session_state.movimientos = []
+    concepto=st.texto_input("Concepto")
+    
+    
     
 elif contenido ==("Ejerccio 2"):
   st.write("Te encuentras en el modulo de Ejerccio 2")
