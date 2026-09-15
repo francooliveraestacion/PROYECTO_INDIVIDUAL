@@ -72,7 +72,7 @@ el total de gastos y el saldo final.
     with col2:
        st.metric("Total de gastos", f"S/ {total_gasto:.2f}")
       
-     with col3:
+    with col3:
        st.metric("Saldo final", f"S/ {saldo_final:.2f}")
        
 
