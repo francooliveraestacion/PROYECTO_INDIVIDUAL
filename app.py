@@ -60,8 +60,8 @@ el total de gastos y el saldo final.
     st.subheader("Movimientos registrados")
     if len(st.session_state.movimientos)> 0:
       st.dataframe(df)
-         total_ingresos = df.loc[df["Tipo"] == "Ingreso", "Valor"].sum()
-         total_gastos = df.loc[df["Tipo"] == "Gasto", "Valor"].sum()
+         total_ingresos = df.loc[df["tipo"] == "Ingreso", "valor"].sum()
+         total_gastos = df.loc[df["tipo"] == "gasto", "valor"].sum()
          saldo_final = total_ingresos - total_gastos
       
          
