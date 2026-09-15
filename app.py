@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-st.title("Indicadores De Despacho")
+st.title("Control de Gastos Personales")
 st.sidebar.title("Contenido")
 contenido=st.sidebar.selectbox("",["Home","Ejerccio 1","Ejerccio 2",
                      "Ejerccio 3","Ejerccio 4"])
@@ -45,6 +45,8 @@ el total de gastos y el saldo final.
     concepto=st.text_input("Concepto")
     tipo=st.selectbox("Tipo de movimiento:",
                       ["Ingreso","Gasto"])
+    valor=st.text_input("Valor,min_value==0.0,step=0.01")
+    
     
     
 elif contenido ==("Ejerccio 2"):
