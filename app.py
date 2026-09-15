@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 
 st.title("Indicadores De Despacho")
 st.sidebar.title("Contenido")
@@ -29,11 +30,10 @@ de información y el seguimiento de los principales indicadores.
 📈 Pandas
 📉 Matplotlib
 """)
-
- 
-
 elif contenido ==("Ejerccio 1"):
   st.write("Te encuentras en el modulo de Ejerccio 1")
+  st.subheades("Flujo de caja")
+  
 
 elif contenido ==("Ejerccio 2"):
   st.write("Te encuentras en el modulo de Ejerccio 2")
