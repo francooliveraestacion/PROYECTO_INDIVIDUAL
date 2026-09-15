@@ -80,7 +80,7 @@ el total de gastos y el saldo final.
     else:
         st.error("El flujo de caja está en contra.")
 
-    else:
+  else:
     st.info("Aún no hay movimientos registrados.")
  
       
