@@ -43,6 +43,8 @@ el total de gastos y el saldo final.
   if "movimientos" not in st.session_state:
     st.session_state.movimientos = []
     concepto=st.text_input("Concepto")
+    tipo=st.selectbox("Tipo de movimiento:",
+                      {"Ingreso". Gasto"]
     
     
     
