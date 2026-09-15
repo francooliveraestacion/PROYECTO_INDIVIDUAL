@@ -53,7 +53,13 @@ el total de gastos y el saldo final.
       elif valor <=0 :
         st.warning("Ingrese un calor mayor que 0.")
       else:
-        movimiento={"concepto":concepto,"tipo":tipo,"valor":valot}
+        movimiento={"concepto":concepto,"tipo":tipo,"valor":valor}
+        st.session_state.movimientos.append(movimiento)
+        st.success("Movimiento agregado correctamente.")
+
+    st.subheader("Movimientos registrados")
+        
+        
     
     
     
