@@ -31,8 +31,15 @@ de información y el seguimiento de los principales indicadores.
 📉 Matplotlib
 """)
 elif contenido ==("Ejerccio 1"):
-  st.write("Te encuentras en el modulo de Ejerccio 1")
+  st.write("Te encuentras en el modulo de Ejercicio 1")
   st.subheader("Flujo de caja")
+  st.markdown("""
+Este módulo permite registrar movimientos financieros,
+clasificándolos como ingresos o gastos. A partir de los
+movimientos registrados se calcula el total de ingresos,
+el total de gastos y el saldo final.
+""")
+  
   
 
 elif contenido ==("Ejerccio 2"):
