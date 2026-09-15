@@ -65,6 +65,7 @@ el total de gastos y el saldo final.
      saldo_final = total_ingresos - total_gastos
       
     st.subheader("Resultado del flujo de caja")
+     col1, col2, col3 = st.columns(3)
 
       
      
