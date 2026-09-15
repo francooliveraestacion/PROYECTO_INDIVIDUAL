@@ -64,6 +64,9 @@ el total de gastos y el saldo final.
      total_gastos = df.loc[df["Tipo"] == "Gasto","Valor"].sum()
      saldo_final = total_ingresos - total_gastos
       
+    st.subheader("Resultado del flujo de caja")
+
+      
      
 
     
