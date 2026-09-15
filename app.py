@@ -58,6 +58,8 @@ el total de gastos y el saldo final.
         st.success("Movimiento agregado correctamente.")
 
     st.subheader("Movimientos registrados")
+    if len(st.session_state.movimientos)> 0
+    st.dataframe(df)
         
         
     
