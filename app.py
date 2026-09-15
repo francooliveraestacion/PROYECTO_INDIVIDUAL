@@ -60,11 +60,11 @@ el total de gastos y el saldo final.
     st.subheader("Movimientos registrados")
     if len(st.session_state.movimientos) > 0:
      st.dataframe(df)
-    total_ingreso = df.loc[df["tipo"] == "ingreso","valor"].sum()
+      total_ingreso = df.loc[df["tipo"] == "ingreso","valor"].sum()
 
-    total_gasto = df.loc[df["tipo"] == "gasto","valor"].sum()
+      total_gasto = df.loc[df["tipo"] == "gasto","valor"].sum()
 
-    saldo_final = total_ingreso - total_gasto
+      saldo_final = total_ingreso - total_gasto
 
     st.subheader("Resultado del flujo de caja")
 
