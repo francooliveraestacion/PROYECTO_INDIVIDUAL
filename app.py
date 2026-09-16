@@ -30,6 +30,8 @@ de información y el seguimiento de los principales indicadores.
 📉 Matplotlib
 """)
 elif contenido ==("Ejerccio 1"):
+   st.write("Te encuentras en el modulo de Ejercicio 1")
+  
   
 elif contenido ==("Ejerccio 2"):
   st.write("Te encuentras en el modulo de Ejerccio 2")
