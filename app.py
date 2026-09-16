@@ -31,14 +31,7 @@ de información y el seguimiento de los principales indicadores.
 """)
 elif contenido ==("Ejerccio 1"):
    st.write("Te encuentras en el modulo de Ejercicio 1")
-  ```python
-import streamlit as st
-import pandas as pd
-
-# ---------------------------------
-# TÍTULO
-# ---------------------------------
-
+ 
 st.title("Ejercicio 1 - Flujo de Caja")
 
 # ---------------------------------
