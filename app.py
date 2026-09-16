@@ -79,7 +79,7 @@ if st.button("Agregar movimiento"):
 # Mostrar movimientos
 st.subheader("Movimientos registrados")
 
- if len(st.session_state.movimientos) > 0:
+if len(st.session_state.movimientos) > 0:
 
     # Convertir la lista en DataFrame
     df = pd.DataFrame(st.session_state.movimientos)
