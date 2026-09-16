@@ -5,7 +5,6 @@ st.title("Control de Gastos Personales")
 st.sidebar.title("Contenido")
 contenido=st.sidebar.selectbox("",["Home","Ejerccio 1","Ejerccio 2",
                      "Ejerccio 3","Ejerccio 4"])
-
 if contenido =="Home":
   st.write("Te encuentras en el modulo de home")
   st.subheader("Estudiante")
@@ -30,7 +29,7 @@ de información y el seguimiento de los principales indicadores.
 📈 Pandas
 📉 Matplotlib
 """)
-elif contenido ==("Ejerccio 1"):
+  elif contenido ==("Ejerccio 1"):
   st.write("Te encuentras en el modulo de Ejercicio 1")
   st.subheader("Flujo de caja")
   st.markdown("""
@@ -127,13 +126,13 @@ if len(st.session_state.movimientos) > 0:
         st.success("El flujo de caja está a favor.")
     else:
         st.error("El flujo de caja está en contra.")
-elif contenido ==("Ejerccio 2"):
+ elif contenido ==("Ejerccio 2"):
   st.write("Te encuentras en el modulo de Ejerccio 2")
 
-elif contenido ==("Ejerccio 3"):
+ elif contenido ==("Ejerccio 3"):
   st.write("Te encuentras en el modulo de Ejerccio 3")
 
-else:
+ else:
   st.write("Te encuentras en el modulo de Ejerccio 4")
 
 
