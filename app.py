@@ -152,18 +152,12 @@ if len(st.session_state.movimientos) > 0:
     # ---------------------------------
 
     if saldo_final > 0:
-
         st.success("El flujo de caja está a favor.")
-
     elif saldo_final < 0:
-
         st.error("El flujo de caja está en contra.")
-
     else:
-
         st.info("El flujo de caja está equilibrado.")
-    else:
-
+else:
     st.info("Aún no hay movimientos registrados.")
 
 
