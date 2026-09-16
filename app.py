@@ -166,7 +166,7 @@ if len(st.session_state.movimientos) > 0:
 else:
 
     st.info("Aún no hay movimientos registrados.")
-```
+
 
   
   
