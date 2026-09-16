@@ -77,6 +77,7 @@ el total de gastos y el saldo final.
       
     if saldo_final >= 0:
         st.success("El flujo de caja está a favor.")
+    
     else:
         st.error("El flujo de caja está en contra.")
 
