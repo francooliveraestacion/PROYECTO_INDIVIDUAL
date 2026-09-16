@@ -56,7 +56,7 @@ valor = st.number_input(
     step=0.01
 )
 
- if st.button("Agregar movimiento"):
+if st.button("Agregar movimiento"):
 
     if concepto == "":
         st.warning("Ingrese un concepto.")
