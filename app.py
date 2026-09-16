@@ -162,8 +162,7 @@ if len(st.session_state.movimientos) > 0:
     else:
 
         st.info("El flujo de caja está equilibrado.")
-
-  else:
+    else:
 
     st.info("Aún no hay movimientos registrados.")
 
