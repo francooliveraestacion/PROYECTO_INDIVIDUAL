@@ -157,8 +157,6 @@ if len(st.session_state.movimientos) > 0:
         st.error("El flujo de caja está en contra.")
     else:
         st.info("El flujo de caja está equilibrado.")
-else:
-    st.info("Aún no hay movimientos registrados.")
 
 
 elif contenido ==("Ejerccio 2"):
