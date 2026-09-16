@@ -144,13 +144,13 @@ else:
     
    
           
-elif contenido ==("Ejerccio 2"):
+ elif contenido ==("Ejerccio 2"):
   st.write("Te encuentras en el modulo de Ejerccio 2")
 
-elif contenido ==("Ejerccio 3"):
+ elif contenido ==("Ejerccio 3"):
   st.write("Te encuentras en el modulo de Ejerccio 3")
 
-else:
+ else:
   st.write("Te encuentras en el modulo de Ejerccio 4")
 
 
