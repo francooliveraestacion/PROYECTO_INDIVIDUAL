@@ -39,11 +39,10 @@ clasificándolos como ingresos o gastos. A partir de los
 movimientos registrados se calcula el total de ingresos,
 el total de gastos y el saldo final.
 """)
-  # Crear la lista de movimientos si no existe
-if "movimientos" not in st.session_state:
+  
+ if "movimientos" not in st.session_state:
     st.session_state.movimientos = []
 
-# Formulario
 concepto = st.text_input("Concepto")
 
 tipo = st.selectbox(
@@ -57,7 +56,7 @@ valor = st.number_input(
     step=0.01
 )
 
-if st.button("Agregar movimiento"):
+ if st.button("Agregar movimiento"):
 
     if concepto == "":
         st.warning("Ingrese un concepto.")
@@ -80,7 +79,7 @@ if st.button("Agregar movimiento"):
 # Mostrar movimientos
 st.subheader("Movimientos registrados")
 
-if len(st.session_state.movimientos) > 0:
+ if len(st.session_state.movimientos) > 0:
 
     # Convertir la lista en DataFrame
     df = pd.DataFrame(st.session_state.movimientos)
