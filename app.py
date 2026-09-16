@@ -127,13 +127,13 @@ if len(st.session_state.movimientos) > 0:
         st.success("El flujo de caja está a favor.")
     else:
         st.error("El flujo de caja está en contra.")
- elif contenido ==("Ejerccio 2"):
+elif contenido ==("Ejerccio 2"):
   st.write("Te encuentras en el modulo de Ejerccio 2")
 
- elif contenido ==("Ejerccio 3"):
+elif contenido ==("Ejerccio 3"):
   st.write("Te encuentras en el modulo de Ejerccio 3")
 
- else:
+else:
   st.write("Te encuentras en el modulo de Ejerccio 4")
 
 
