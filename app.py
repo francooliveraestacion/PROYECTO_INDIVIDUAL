@@ -31,6 +31,76 @@ de información y el seguimiento de los principales indicadores.
 """)
 elif contenido ==("Ejerccio 1"):
    st.write("Te encuentras en el modulo de Ejercicio 1")
+  st.write("Te encuentras en el módulo de Ejercicio 1")
+    st.subheader("Flujo de caja")
+
+    st.markdown(
+        """
+        Este módulo permite registrar movimientos financieros,
+        clasificándolos como ingresos o gastos. A partir de los
+        movimientos registrados se calcula el total de ingresos,
+        el total de gastos y el saldo final.
+        """
+    )
+
+    # Esta lista se guarda en session_state para no perder los movimientos
+    # cada vez que Streamlit vuelve a ejecutar la página.
+    if "movimientos" not in st.session_state:
+        st.session_state.movimientos = []
+
+    # Datos que debe ingresar el usuario para registrar un movimiento
+    concepto = st.text_input("Concepto")
+    tipo = st.selectbox("Tipo de movimiento", ["Ingreso", "Gasto"])
+    valor = st.number_input("Valor", min_value=0.0, step=0.01, format="%.2f")
+
+    # Al presionar el botón validamos los datos antes de guardar
+    if st.button("Agregar movimiento"):
+        if concepto.strip() == "":
+            st.warning("Ingrese un concepto.")
+        elif valor <= 0:
+            st.warning("Ingrese un valor mayor que 0.")
+        else:
+            movimiento = {
+                "concepto": concepto.strip(),
+                "tipo": tipo,
+                "valor": valor
+            }
+
+            st.session_state.movimientos.append(movimiento)
+            st.success("Movimiento agregado correctamente.")
+
+    st.subheader("Movimientos registrados")
+
+    # Solo hacemos los cálculos cuando ya existe al menos un movimiento
+    if len(st.session_state.movimientos) > 0:
+        df = pd.DataFrame(st.session_state.movimientos)
+        st.dataframe(df, use_container_width=True)
+
+        # Separamos ingresos y gastos para obtener el saldo final
+        total_ingreso = df.loc[df["tipo"] == "Ingreso", "valor"].sum()
+        total_gasto = df.loc[df["tipo"] == "Gasto", "valor"].sum()
+        saldo_final = total_ingreso - total_gasto
+
+        st.subheader("Resultado del flujo de caja")
+        col1, col2, col3 = st.columns(3)
+
+        with col1:
+            st.metric("Total de ingresos", f"S/ {total_ingreso:.2f}")
+
+        with col2:
+            st.metric("Total de gastos", f"S/ {total_gasto:.2f}")
+
+        with col3:
+            st.metric("Saldo final", f"S/ {saldo_final:.2f}")
+
+        # Un mensaje simple para interpretar el resultado
+        if saldo_final >= 0:
+            st.success("El flujo de caja está a favor.")
+        else:
+            st.error("El flujo de caja está en contra.")
+
+    else:
+        st.info("Aún no hay movimientos registrados.")
 
 
 
