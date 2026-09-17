@@ -108,7 +108,7 @@ elif contenido ==("Ejerccio 1"):
 
 elif contenido ==("Ejerccio 2"):
   st.write("Te encuentras en el modulo de Ejerccio 2")
-   st.title("Registro de productos")
+  st.title("Registro de productos")
 
 
 elif contenido ==("Ejerccio 3"):
