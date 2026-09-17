@@ -122,6 +122,8 @@ elif contenido ==("Ejerccio 2"):
   categoria = st.selectbox( "Categoría", ["Cerveza", "Bebida", "Alimento", "Otro"] )
   precio = st.number_input( "Precio", min_value=0.0, step=0.01 )
   cantidad = st.number_input( "Cantidad", min_value=1, step=1 )
+  total = precio * cantidad
+  st.write(f"Total: S/ {total:.2f}")
   
     
 
