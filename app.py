@@ -124,6 +124,14 @@ elif contenido ==("Ejerccio 2"):
   cantidad = st.number_input( "Cantidad", min_value=1, step=1 )
   total = precio * cantidad
   st.write(f"Total: S/ {total:.2f}")
+  if st.button("Agregar producto"):
+    if nombre == "": st.warning("Ingrese el nombre del producto.")
+    elif precio <= 0: st.warning("Ingrese un precio mayor que 0.")
+    else:
+      nuevo_registro = np.array( [[nombre, categoria, precio, cantidad, total]], dtype=object )
+    
+    
+    
   
     
 
