@@ -129,6 +129,9 @@ elif contenido ==("Ejerccio 2"):
     elif precio <= 0: st.warning("Ingrese un precio mayor que 0.")
     else:
       nuevo_registro = np.array( [[nombre, categoria, precio, cantidad, total]], dtype=object )
+    st.session_state.registros = np.vstack( [st.session_state.registros, nuevo_registro] )
+    st.success("Producto agregado correctamente.")
+    
     
     
     
