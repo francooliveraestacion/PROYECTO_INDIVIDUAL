@@ -118,8 +118,8 @@ elif contenido ==("Ejerccio 2"):
   if "registros" not in st.session_state:
     st.session_state.registros = np.empty((0, 5), dtype=object)
     st.subheader("Registro de producto")
-    nombre = st.text_input("Nombre del producto")
-    categoria = st.selectbox( "Categoría", ["Cerveza", "Bebida", "Alimento", "Otro"] )
+  nombre = st.text_input("Nombre del producto")
+  categoria = st.selectbox( "Categoría", ["Cerveza", "Bebida", "Alimento", "Otro"] )
     
     
 
