@@ -110,6 +110,11 @@ elif contenido ==("Ejerccio 2"):
   st.write("Te encuentras en el modulo de Ejerccio 2")
   st.title("Registro de productos")
 
+  st.markdown("""Este módulo permite registrar productos utilizando arreglos de NumPy. 
+  Cada registro contiene el nombre del producto, su categoría, precio, cantidad y el total de la venta. 
+  Los registros se almacenan en un array de NumPy y posteriormente se convierten en un DataFrame para mostrar 
+  la información actualizada en pantalla.""")
+
 
 elif contenido ==("Ejerccio 3"):
   st.write("Te encuentras en el modulo de Ejerccio 3")
