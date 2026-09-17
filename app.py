@@ -115,6 +115,10 @@ elif contenido ==("Ejerccio 2"):
   Los registros se almacenan en un array de NumPy y posteriormente se convierten en un DataFrame para mostrar 
   la información actualizada en pantalla.""")
 
+  if "registros" not in st.session_state:
+    st.session_state.registros = np.empty((0, 5), dtype=object)
+    
+
 
 elif contenido ==("Ejerccio 3"):
   st.write("Te encuentras en el modulo de Ejerccio 3")
