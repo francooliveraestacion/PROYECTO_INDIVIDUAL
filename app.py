@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import numpy as np
 
 st.title("Control de Gastos Personales")
 st.sidebar.title("Contenido")
@@ -107,6 +108,8 @@ elif contenido ==("Ejerccio 1"):
 
 elif contenido ==("Ejerccio 2"):
   st.write("Te encuentras en el modulo de Ejerccio 2")
+    st.title("registro de productos")
+
 
 elif contenido ==("Ejerccio 3"):
   st.write("Te encuentras en el modulo de Ejerccio 3")
