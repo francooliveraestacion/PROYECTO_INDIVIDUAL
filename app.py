@@ -30,8 +30,7 @@ de información y el seguimiento de los principales indicadores.
 📉 Matplotlib
 """)
 elif contenido ==("Ejerccio 1"):
-   st.write("Te encuentras en el modulo de Ejercicio 1")
-  st.write("Te encuentras en el módulo de Ejercicio 1")
+    st.write("Te encuentras en el modulo de Ejercicio 1")
     st.subheader("Flujo de caja")
 
     st.markdown(
