@@ -131,6 +131,12 @@ elif contenido ==("Ejerccio 2"):
       nuevo_registro = np.array( [[nombre, categoria, precio, cantidad, total]], dtype=object )
     st.session_state.registros = np.vstack( [st.session_state.registros, nuevo_registro] )
     st.success("Producto agregado correctamente.")
+  st.subheader("Registros")
+    if len(st.session_state.registros) > 0:
+    df = pd.DataFrame( st.session_state.registros, columns=[ "Producto", "Categoría", "Precio", "Cantidad", "Total" ] )
+    st.dataframe(df, use_container_width=True)
+else: st.info("Aún no hay productos registrados.")
+    
     
     
     
