@@ -172,7 +172,7 @@ elif contenido ==("Ejerccio 3"):
             st.session_state.historico_resultados = pd.concat(
                 [st.session_state.historico_resultados, nuevo_registro],
                 ignore_index=True)
-           except Exception as e:st.error(f"Error al ejecutar la función: {e}")
+      except Exception as e:st.error(f"Error al ejecutar la función: {e}")
  
   st.divider()
   st.subheader("📊 Histórico de Resultados Obtendidos")
