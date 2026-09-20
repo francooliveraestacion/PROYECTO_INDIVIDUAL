@@ -162,8 +162,7 @@ elif contenido ==("Ejerccio 3"):
       "Clasificación": resultado["clasificacion"] }
       st.session_state.historial.append( nuevo_registro ) 
       st.success( "Resultado guardado en el histórico." )
-   except Exception as error:
-    st.error( f"Error al ejecutar la función: {error}" )
+   else:st.error( f"Error al ejecutar la función: {error}" )
     
     
 
