@@ -143,6 +143,7 @@ elif contenido ==("Ejerccio 3"):
   st.title("Uso de funciones desde una librería externa")
   if "historico" not in st.session_state:st.session_state.historico = []
   funcion = st.selectbox("Seleccione una función",["Calcular IMC"])
+  nombre= st.imput("Ingrese su nombre:")
   peso_kg= st.number_input( "Ingrese el peso (kg)",min_value=0.1,value=70.0)
   altura_m = st.number_input("Ingrese la altura (m)", min_value=0.1, value=1.70)
   
@@ -157,7 +158,7 @@ elif contenido ==("Ejerccio 3"):
         st.write(f"IMC calculado: {resultado:.2f}")
 
        
-        st.session_state.historico.append({ "Peso (kg)": peso,"Altura (m)": altura,"IMC": round(resultado, 2)})
+        st.session_state.historico.append({ "Peso (kg)": peso_kg,"Altura (m)": altura_m,"IMC": round(resultado, 2)})
 
     except ValueError as error:
 
