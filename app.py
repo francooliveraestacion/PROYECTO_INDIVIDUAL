@@ -175,16 +175,16 @@ elif contenido ==("Ejerccio 3"):
         except Exception as e:st.error(f"Error al ejecutar la función: {e}")
 
    
-st.divider()
-st.subheader("📊 Histórico de Resultados Obtendidos")
+  st.divider()
+  st.subheader("📊 Histórico de Resultados Obtendidos")
 
-if not st.session_state.historico_resultados.empty:
+  if not st.session_state.historico_resultados.empty:
     st.dataframe(st.session_state.historico_resultados, use_container_width=True)
     
     if st.button("Limpiar Histórico"):
         st.session_state.historico_resultados = pd.DataFrame(columns=["paciente", "imc", "clasificacion_imc", "superficie_corporal_m2"] )
         st.rerun()
-else:
+  else:
     st.info("Aún no se han ejecutado cálculos en esta sesión.")
 
     
