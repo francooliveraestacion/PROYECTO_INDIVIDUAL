@@ -154,14 +154,14 @@ elif contenido ==("Ejerccio 3"):
       with col2: 
         st.write("Clasificación") 
         st.info( resultado["clasificacion"] )
-    nuevo_registro = { 
+      nuevo_registro = { 
       "Función": funcion_seleccionada, 
       "Peso (kg)": peso_kg,
       "Altura (m)": altura_m,
       "IMC": resultado["imc"], 
       "Clasificación": resultado["clasificacion"] }
-    st.session_state.historial.append( nuevo_registro ) 
-    st.success( "Resultado guardado en el histórico." )
+      st.session_state.historial.append( nuevo_registro ) 
+      st.success( "Resultado guardado en el histórico." )
   except Exception as error:
     st.error( f"Error al ejecutar la función: {error}" )
     
