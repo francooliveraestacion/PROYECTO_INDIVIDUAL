@@ -149,6 +149,21 @@ elif contenido ==("Ejerccio 3"):
       st.success("La función se ejecutó correctamente.") 
       st.subheader("Resultado") 
       col1, col2 = st.columns(2)
+      with col1: 
+        st.metric( "IMC", resultado["imc"] )
+      with col2: 
+        st.write("Clasificación") 
+        st.info( resultado["clasificacion"] )
+    nuevo_registro = { 
+      "Función": funcion_seleccionada, 
+      "Peso (kg)": peso_kg,
+      "Altura (m)": altura_m,
+      "IMC": resultado["imc"], 
+      "Clasificación": resultado["clasificacion"] }
+    st.session_state.historial.append( nuevo_registro ) 
+    st.success( "Resultado guardado en el histórico." )
+  except Exception as error:
+    st.error( f"Error al ejecutar la función: {error}" )
     
     
 
