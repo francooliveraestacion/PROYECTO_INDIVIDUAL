@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import libreria_funciones_proyecto1  as lf
+import libreriaproyecto1  as lf
 
 st.title("Control de Gastos Personales")
 st.sidebar.title("Contenido")
