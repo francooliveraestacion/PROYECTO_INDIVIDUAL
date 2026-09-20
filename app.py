@@ -158,7 +158,7 @@ elif contenido ==("Ejerccio 3"):
         altura = st.number_input("Altura (m)", min_value=0.3, max_value=2.5, value=1.70, step=0.01)
 
     st.write("")
-  if st.button("🚀 Ejecutar Función", type="primary"):
+  if st.button(" Calcular IMC ", type="primary"):
         try:
             resultado = evaluar_paciente_completo(nombre=nombre, peso_kg=peso, altura_m=altura)
             st.success("✅ Función ejecutada con éxito")
