@@ -156,17 +156,17 @@ elif contenido ==("Ejerccio 3"):
 
         st.write(f"IMC calculado: {resultado:.2f}")
 
-        # Guardar histórico
-        st.session_state.historico.append({
-            "Peso (kg)": peso,
-            "Altura (m)": altura,
-            "IMC": round(resultado, 2)
-        })
+       
+        st.session_state.historico.append({ "Peso (kg)": peso,"Altura (m)": altura,"IMC": round(resultado, 2)})
 
     except ValueError as error:
 
         st.error(str(error))
+  st.subheader("Histórico de resultados")
 
+  df = pd.DataFrame(st.session_state.historico)
+
+  st.dataframe(df)
   
 
   
