@@ -135,14 +135,14 @@ elif contenido ==("Ejerccio 2"):
 elif contenido ==("Ejerccio 3"):
   st.write("Te encuentras en el modulo de Ejerccio 3")
   st.title("Uso de funciones desde una librería externa")
-    if "historico_resultados" not in st.session_state:
+  if "historico_resultados" not in st.session_state:
         st.session_state.historico_resultados = pd.DataFrame(
             columns=["paciente", "imc", "clasificacion_imc", "superficie_corporal_m2"]
         )
 
-    st.divider()
+   st.divider()
 
-    opcion_funcion = st.selectbox(
+   opcion_funcion = st.selectbox(
         "Seleccione la función que desea ejecutar:",
         options=["Evaluación de Paciente (IMC y Superficie Corporal)"],
     )
