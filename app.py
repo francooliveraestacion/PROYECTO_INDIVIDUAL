@@ -165,6 +165,11 @@ elif contenido ==("Ejerccio 3"):
     except Exception as error:
      st.error(f"Error al ejecutar la función: {error}")
   st.header("4. Histórico de resultados")
+  if len(st.session_state.historial) > 0:
+    df_historial = pd.DataFrame( st.session_state.historial)
+    st.dataframe( df_historial, use_container_width=True, hide_index=True )
+  else:st.info( "Todavía no se han registrado resultados.")
+
  
     
     
