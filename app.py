@@ -138,7 +138,8 @@ elif contenido ==("Ejerccio 3"):
   if "historial" not in st.session_state: st.session_state.historial = []
   st.header("1. Selección de función")
   funcion_seleccionada = st.selectbox( "Seleccione la función que desea ejecutar:", [ "Calcular IMC" ] )
-  st.header("2. Ingreso de parámetros") col1, col2 = st.columns(2)
+  st.header("2. Ingreso de parámetros") 
+  col1, col2 = st.columns(2)
   with col1: peso_kg = st.number_input( "Peso (kg)", min_value=0.1, value=70.0, step=0.1 ) 
   with col2: altura_m = st.number_input( "Altura (m)", min_value=0.1, value=1.75, step=0.01 )
     
