@@ -145,30 +145,11 @@ elif contenido ==("Ejerccio 3"):
   funcion = st.selectbox("Seleccione una función",["Calcular IMC"])
   peso_kg= st.number_input( "Ingrese el peso (kg)",min_value=0.1,value=70.0)
   altura_m = st.number_input("Ingrese la altura (m)", min_value=0.1, value=1.70)
+  resultado_final=calcular_imc__init__(self, nombre, peso_kg, altura_m):
   
   if st.button("Ejecutar función"):
 
-    try:
-
-        resultado = calcular_imc(peso_kg, altura_m)
-
-        st.success("Función ejecutada correctamente")
-
-        st.write(f"IMC calculado: {resultado:.2f}")
-
-       
-        st.session_state.historico.append({ "Peso (kg)": peso_kg,"Altura (m)": altura_m,"IMC": round(resultado, 2)})
-
-   except ValueError as error:
-
-        st.error(str(error))
-  st.subheader("Histórico de resultados")
-
-  df = pd.DataFrame(st.session_state.historico)
-
-  st.dataframe(df)
-  
-
+    
   
 
 
