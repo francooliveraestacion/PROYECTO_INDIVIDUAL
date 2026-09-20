@@ -132,7 +132,7 @@ elif contenido ==("Ejerccio 2"):
     st.dataframe(df, use_container_width=True)
   else: st.info("Aún no hay productos registrados.")
       
- elif contenido ==("Ejerccio 3"):
+elif contenido ==("Ejerccio 3"):
   st.write("Te encuentras en el modulo de Ejerccio 3")
   st.title("Uso de funciones desde una librería externa")
     if "historico_resultados" not in st.session_state:
