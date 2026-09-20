@@ -140,7 +140,9 @@ elif contenido ==("Ejerccio 2"):
       
 elif contenido ==("Ejerccio 3"):
   st.write("Te encuentras en el modulo de Ejerccio 3")
-  st.title("Ejercicio 3 - Uso de funciones desde una librería externa")
+  st.title("Uso de funciones desde una librería externa")
+  if "historico" not in st.session_state:
+    st.session_state.historico = []
 
 else:
   st.write("Te encuentras en el modulo de Ejerccio 4")
