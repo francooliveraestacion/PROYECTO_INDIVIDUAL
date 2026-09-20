@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import librería_clases_proyecto1 as calcular_imc
+import librería_clases_proyecto1 as lf
 
 st.title("Control de Gastos Personales")
 st.sidebar.title("Contenido")
@@ -150,21 +150,7 @@ elif contenido ==("Ejerccio 3"):
   if st.button("Calcular IMC"):
      if nombre.strip() == "":
         st.warning("Ingrese el nombre del paciente.")
-     else:
-
-        imc = calcular_imc(peso, altura)
-
-        # Clasificación
-        if imc < 18.5:
-            clasificacion = "Bajo peso"
-        elif imc < 25:
-            clasificacion = "Peso normal"
-        elif imc < 30:
-            clasificacion = "Sobrepeso"
-        else:
-            clasificacion = "Obesidad"
-    
-
+  resultado_final=lf
     
   
 
