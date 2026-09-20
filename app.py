@@ -148,6 +148,9 @@ elif contenido ==("Ejerccio 3"):
   altura_m = st.number_input("Ingrese la altura (m)", min_value=0.1, value=1.70)
   
   if st.button("Calcular IMC"):
+     if nombre.strip() == "":
+        st.warning("Ingrese el nombre del paciente.")
+    
 
     
   
