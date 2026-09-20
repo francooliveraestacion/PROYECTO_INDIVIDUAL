@@ -159,7 +159,7 @@ elif contenido ==("Ejerccio 3"):
        
         st.session_state.historico.append({ "Peso (kg)": peso_kg,"Altura (m)": altura_m,"IMC": round(resultado, 2)})
 
-    except ValueError as error:
+   except ValueError as error:
 
         st.error(str(error))
   st.subheader("Histórico de resultados")
