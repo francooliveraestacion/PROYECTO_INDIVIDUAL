@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import libreria_funciones_proyecto1  as lf
 
 st.title("Control de Gastos Personales")
 st.sidebar.title("Contenido")
@@ -136,17 +137,10 @@ elif contenido ==("Ejerccio 2"):
     df = pd.DataFrame( st.session_state.registros, columns=[ "Producto", "Categoría", "Precio", "Cantidad", "Total" ] )
     st.dataframe(df, use_container_width=True)
   else: st.info("Aún no hay productos registrados.")
-    
-    
-    
-    
-    
-  
-    
-
-
+      
 elif contenido ==("Ejerccio 3"):
   st.write("Te encuentras en el modulo de Ejerccio 3")
+  st.title("Ejercicio 3 - Uso de funciones desde una librería externa")
 
 else:
   st.write("Te encuentras en el modulo de Ejerccio 4")
