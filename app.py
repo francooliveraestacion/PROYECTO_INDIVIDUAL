@@ -164,6 +164,7 @@ elif contenido ==("Ejerccio 3"):
       st.success( "Resultado guardado en el histórico." )
     except Exception as error:
      st.error(f"Error al ejecutar la función: {error}")
+  st.header("4. Histórico de resultados")
  
     
     
