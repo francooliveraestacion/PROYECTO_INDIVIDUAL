@@ -330,7 +330,7 @@ class Paciente:
     como IMC y superficie corporal.
     """
 
-    def imc_corporal(self, nombre, peso_kg, altura_m):
+    def imc_corporal(nombre, peso_kg, altura_m):
         self.nombre = nombre
         self.peso_kg = peso_kg
         self.altura_m = altura_m
