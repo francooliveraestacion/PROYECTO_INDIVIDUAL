@@ -142,15 +142,15 @@ elif contenido ==("Ejerccio 3"):
   st.write("Te encuentras en el modulo de Ejerccio 3")
   st.title("Uso de funciones desde una librería externa")
   if "historico" not in st.session_state:st.session_state.historico = []
-  funcion = st.selectbox("Seleccione una función",["Calcular IMC"])
-  nombre = st.text_input("Nombre del paciente")
-  peso_kg= st.number_input( "Ingrese el peso (kg)",min_value=0.1,value=70.0)
-  altura_m = st.number_input("Ingrese la altura (m)", min_value=0.1, value=1.70)
+  self.funcion = st.selectbox("Seleccione una función",["Calcular IMC"])
+  self.nombre = st.text_input("Nombre del paciente")
+  self.peso_kg= st.number_input( "Ingrese el peso (kg)",min_value=0.1,value=70.0)
+  self.altura_m = st.number_input("Ingrese la altura (m)", min_value=0.1, value=1.70)
   
   if st.button("Calcular IMC"):
      if nombre.strip() == "":
         st.warning("Ingrese el nombre del paciente.")
-  resultado_final=lf.imc_corporal(nombre, peso_kg, altura_m)
+  resultado_final=lf.imc_corporal(self,nombre, peso_kg, altura_m)
   st.write("El IMC ES:", resultado_final)
     
   
