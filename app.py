@@ -143,9 +143,21 @@ elif contenido ==("Ejerccio 3"):
   st.title("Uso de funciones desde una librería externa")
   if "historico_resultados" not in st.session_state:
     st.session_state.historico_resultados = pd.DataFrame(columns=["paciente", "imc", "clasificacion_imc", "superficie_corporal_m2"] )
-    st.divider()
-    opcion_funcion = st.selectbox("Seleccione la función que desea ejecutar:",
+  st.divider()
+  opcion_funcion = st.selectbox("Seleccione la función que desea ejecutar:",
     options=["Evaluación de Paciente (IMC y Superficie Corporal)"])
+  st.subheader("Ingreso de Parámetros")
+  if opcion_funcion == "Evaluación de Paciente (IMC y Superficie Corporal)":
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        nombre = st.text_input("Nombre del Paciente", value="Juan Pérez")
+    with col2:
+        peso = st.number_input("Peso (kg)", min_value=0.1, max_value=300.0, value=70.0, step=0.5)
+    with col3:
+        altura = st.number_input("Altura (m)", min_value=0.3, max_value=2.5, value=1.70, step=0.01)
+
+    st.write("")
   
 
     
