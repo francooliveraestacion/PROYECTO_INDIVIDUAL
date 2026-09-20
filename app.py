@@ -141,8 +141,14 @@ elif contenido ==("Ejerccio 2"):
 elif contenido ==("Ejerccio 3"):
   st.write("Te encuentras en el modulo de Ejerccio 3")
   st.title("Uso de funciones desde una librería externa")
-  if "historico" not in st.session_state:
-    st.session_state.historico = []
+  if "historico" not in st.session_state:st.session_state.historico = []
+  funcion = st.selectbox("Seleccione una función",["Calcular IMC"])
+  peso = st.number_input( "Ingrese el peso (kg)",min_value=0.1,value=70.0)
+  altura = st.number_input("Ingrese la altura (m)", min_value=0.1, value=1.70)
+  
+
+  
+
 
 else:
   st.write("Te encuentras en el modulo de Ejerccio 4")
