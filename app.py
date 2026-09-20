@@ -146,7 +146,6 @@ elif contenido ==("Ejerccio 3"):
   nombre = st.text_input("Nombre del paciente")
   peso_kg= st.number_input( "Ingrese el peso (kg)",min_value=0.1,value=70.0)
   altura_m = st.number_input("Ingrese la altura (m)", min_value=0.1, value=1.70)
-  resultado_final=calcular_imc__init__(peso_kg, altura_m):
   
   if st.button("Calcular IMC"):
 
