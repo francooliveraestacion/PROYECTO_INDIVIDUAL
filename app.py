@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import librería_clases_proyecto1 as lf
+import librería_clases_proyecto1 as evaluar_paciente_completo
 
 st.title("Control de Gastos Personales")
 st.sidebar.title("Contenido")
@@ -141,17 +141,10 @@ elif contenido ==("Ejerccio 2"):
 elif contenido ==("Ejerccio 3"):
   st.write("Te encuentras en el modulo de Ejerccio 3")
   st.title("Uso de funciones desde una librería externa")
-  if "historico" not in st.session_state:st.session_state.historico = []
-  funcion = st.selectbox("Seleccione una función",["Calcular IMC"])
-  nombre = st.text_input("Nombre del paciente")
-  peso_kg= st.number_input( "Ingrese el peso (kg)",min_value=0.1,value=70.0)
-  altura_m = st.number_input("Ingrese la altura (m)", min_value=0.1, value=1.70)
+  if "historico_resultados" not in st.session_state:
+    st.session_state.historico_resultados = pd.DataFrame(columns=["paciente", "imc", "clasificacion_imc", "superficie_corporal_m2"] )
   
-  if st.button("Calcular IMC"):
-     if nombre.strip() == "":
-        st.warning("Ingrese el nombre del paciente.")
-  resultado_final=lf.imc_corporal(nombre, peso_kg, altura_m)
-  st.write("El IMC ES:", resultado_final)
+
     
   
 
