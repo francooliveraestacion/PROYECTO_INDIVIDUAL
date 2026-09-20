@@ -143,7 +143,12 @@ elif contenido ==("Ejerccio 3"):
   with col1: peso_kg = st.number_input( "Peso (kg)", min_value=0.1, value=70.0, step=0.1 ) 
   with col2: altura_m = st.number_input( "Altura (m)", min_value=0.1, value=1.75, step=0.01 )
   st.header("3. Ejecutar función") 
-  if st.button("▶️ Ejecutar función"):
+  if st.button("CALCULO IMC"):
+    try: # Ejecutar la función de la librería 
+      resultado = calcular_imc( peso_kg, altura_m )
+      st.success("La función se ejecutó correctamente.") 
+      st.subheader("Resultado") 
+      col1, col2 = st.columns(2)
     
     
 
