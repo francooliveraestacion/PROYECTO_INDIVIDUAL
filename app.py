@@ -158,6 +158,22 @@ elif contenido ==("Ejerccio 3"):
         altura = st.number_input("Altura (m)", min_value=0.3, max_value=2.5, value=1.70, step=0.01)
 
     st.write("")
+    if st.button("🚀 Ejecutar Función", type="primary"):
+        try:
+            resultado = evaluar_paciente_completo(nombre=nombre, peso_kg=peso, altura_m=altura)
+            st.success("✅ Función ejecutada con éxito")
+            st.markdown("### Resultado:")
+            res_col1, res_col2, res_col3 = st.columns(3)
+            res_col1.metric("IMC", f"{resultado['imc']} kg/m²")
+            res_col2.metric("Clasificación", resultado['clasificacion_imc'])
+            res_col3.metric("Sup. Corporal", f"{resultado['superficie_corporal_m2']} m²")
+
+            nuevo_registro = pd.DataFrame([resultado])
+            st.session_state.historico_resultados = pd.concat(
+                [st.session_state.historico_resultados, nuevo_registro],
+                ignore_index=True)
+          except Exception as e:
+            st.error(f"Error al ejecutar la función: {e}")
   
 
     
