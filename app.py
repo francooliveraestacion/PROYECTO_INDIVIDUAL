@@ -146,6 +146,28 @@ elif contenido ==("Ejerccio 3"):
   peso = st.number_input( "Ingrese el peso (kg)",min_value=0.1,value=70.0)
   altura = st.number_input("Ingrese la altura (m)", min_value=0.1, value=1.70)
   
+  if st.button("Ejecutar función"):
+
+    try:
+
+        resultado = calcular_imc(peso, altura)
+
+        st.success("Función ejecutada correctamente")
+
+        st.write(f"IMC calculado: {resultado:.2f}")
+
+        # Guardar histórico
+        st.session_state.historico.append({
+            "Peso (kg)": peso,
+            "Altura (m)": altura,
+            "IMC": round(resultado, 2)
+        })
+
+    except ValueError as error:
+
+        st.error(str(error))
+
+  
 
   
 
