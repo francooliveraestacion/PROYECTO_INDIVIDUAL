@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from libreria_funciones_proyecto1 import evaluar_paciente_completo
+from librería_clases_proyecto1 import evaluar_paciente_completo
 
 st.title("Control de Gastos Personales")
 st.sidebar.title("Contenido")
