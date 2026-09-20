@@ -150,7 +150,7 @@ elif contenido ==("Ejerccio 3"):
   if st.button("Calcular IMC"):
      if nombre.strip() == "":
         st.warning("Ingrese el nombre del paciente.")
-  resultado_final=lf.imc_corpotal(self, nombre, peso_kg, altura_m)
+  resultado_final=lf.imc_corporal(self, nombre, peso_kg, altura_m)
     
   
 
