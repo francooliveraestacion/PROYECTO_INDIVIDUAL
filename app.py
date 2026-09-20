@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import librería_clases_proyecto1 as evaluar_paciente_completo
+import llibreria_funciones_proyecto1 as calcular_imc
 
 st.title("Control de Gastos Personales")
 st.sidebar.title("Contenido")
@@ -135,6 +135,13 @@ elif contenido ==("Ejerccio 2"):
 elif contenido ==("Ejerccio 3"):
   st.write("Te encuentras en el modulo de Ejerccio 3")
   st.title("Uso de funciones desde una librería externa")
+  if "historial" not in st.session_state: st.session_state.historial = []
+  st.header("1. Selección de función")
+  funcion_seleccionada = st.selectbox( "Seleccione la función que desea ejecutar:", [ "Calcular IMC" ] )
+  st.header("2. Ingreso de parámetros") col1, col2 = st.columns(2)
+  with col1: peso_kg = st.number_input( "Peso (kg)", min_value=0.1, value=70.0, step=0.1 ) 
+  with col2: altura_m = st.number_input( "Altura (m)", min_value=0.1, value=1.75, step=0.01 )
+    
 
 
  
