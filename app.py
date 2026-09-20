@@ -110,12 +110,6 @@ elif contenido ==("Ejerccio 1"):
 elif contenido ==("Ejerccio 2"):
   st.write("Te encuentras en el modulo de Ejerccio 2")
   st.title("Registro de productos")
-
-  st.markdown("""Este módulo permite registrar productos utilizando arreglos de NumPy. 
-  Cada registro contiene el nombre del producto, su categoría, precio, cantidad y el total de la venta. 
-  Los registros se almacenan en un array de NumPy y posteriormente se convierten en un DataFrame para mostrar 
-  la información actualizada en pantalla.""")
-
   if "registros" not in st.session_state:
     st.session_state.registros = np.empty((0, 5), dtype=object)
     st.subheader("Registro de producto")
@@ -138,7 +132,7 @@ elif contenido ==("Ejerccio 2"):
     st.dataframe(df, use_container_width=True)
   else: st.info("Aún no hay productos registrados.")
       
-elif contenido ==("Ejerccio 3"):
+ elif contenido ==("Ejerccio 3"):
   st.write("Te encuentras en el modulo de Ejerccio 3")
   st.title("Uso de funciones desde una librería externa")
   if "historico_resultados" not in st.session_state:
@@ -146,9 +140,9 @@ elif contenido ==("Ejerccio 3"):
         columns=["paciente", "imc", "clasificacion_imc", "superficie_corporal_m2"]
     )
 
-st.divider()
+ st.divider()
 
-opcion_funcion = st.selectbox(
+ opcion_funcion = st.selectbox(
     "Seleccione la función que desea ejecutar:",
     options=["Evaluación de Paciente (IMC y Superficie Corporal)"],
 )
