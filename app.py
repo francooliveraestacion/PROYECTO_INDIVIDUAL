@@ -242,15 +242,15 @@ else:
   st.divider()
   
   st.header("🔵 Leer productos")
-  
-  if len(st.session_state.productos) == 0:
-      st.info("No existen productos registrados.")
+  if len(st.session_state["productos"]) == 0:
+    st.info("No existen productos registrados.")
 
   else:
-      datos = []
-      for producto in st.session_state.productos:
-          resumen = producto.resumen()
-          datos.append({
+    datos = []
+
+    for producto in st.session_state["productos"]:
+        resumen = producto.resumen()
+        datos.append({
               "Producto": resumen["producto"],
               "Stock actual": resumen["stock_actual"],
               "Valor inventario": resumen["valor_inventario"],
@@ -258,9 +258,9 @@ else:
               "Margen %": resumen["margen_pct"],
                "Necesita reposición": resumen["necesita_reposicion"]
            })
-          df_productos = pd.DataFrame(datos)
+        df_productos = pd.DataFrame(datos)
 
-          st.dataframe(
+        st.dataframe(
             df_productos,
             use_container_width=True
             )
