@@ -536,7 +536,7 @@ else:
             st.error(
                 f"No se pudo generar el resumen: {error}"
             )
-    else:
+  else:
         st.info("Todavía no existen productos registrados.")
 
 
