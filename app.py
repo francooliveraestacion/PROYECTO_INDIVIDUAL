@@ -191,6 +191,15 @@ else:
       stock_actual = st.number_input("Stock Actual", min_value=0, step=1)
       stock_minimo = st.number_input("Stock Mínimo", min_value=0, step=1)
       submit_button = st.form_submit_button("Guardar Producto")
+  def leer_productos():
+    st.header("Listado de Productos")
+    if st.session_state.productos:
+        productos_data = [p.resumen() for p in st.session_state.productos]
+        df = pd.DataFrame(productos_data)
+        st.dataframe(df)
+    else:
+        st.info("No hay productos en el inventario.")
+
      
   
 
