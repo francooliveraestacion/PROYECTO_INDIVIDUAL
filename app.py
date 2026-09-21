@@ -330,42 +330,6 @@ else:
             key="actualizar_stock_minimo"
         )
 
-        if st.button("✏️ Actualizar producto"):
-
-            if nuevo_nombre.strip() == "":
-
-                st.error(
-                    "El nombre del producto no puede estar vacío."
-                )
-
-            else:
-
-                try:
-
-                    producto_actualizado = InventarioProducto(
-                        nuevo_nombre,
-                        nuevo_costo,
-                        nuevo_precio,
-                        nuevo_stock,
-                        nuevo_stock_minimo
-                    )
-
-                    st.session_state.productos[indice] = (
-                        producto_actualizado
-                    )
-
-                    st.success(
-                        "Producto actualizado correctamente."
-                    )
-
-                    st.rerun()
-
-                except ValueError as error:
-
-                    st.error(
-                        f"Error al actualizar: {error}"
-                    )
-
 
 
 
