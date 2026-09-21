@@ -191,7 +191,7 @@ else:
       stock_actual = st.number_input("Stock Actual", min_value=0, step=1)
       stock_minimo = st.number_input("Stock Mínimo", min_value=0, step=1)
       submit_button = st.form_submit_button("Guardar Producto")
-      if submit_button:
+    if submit_button:
             try:
                 if any(p.nombre == nombre for p in st.session_state.productos):
                     st.error(f"Ya existe un producto con el nombre '{nombre}'. Por favor, use un nombre diferente o actualice el producto existente.")
@@ -207,7 +207,7 @@ else:
         productos_data = [p.resumen() for p in st.session_state.productos]
         df = pd.DataFrame(productos_data)
         st.dataframe(df)
-  else:
+   else:
         st.info("No hay productos en el inventario.")
               
 
