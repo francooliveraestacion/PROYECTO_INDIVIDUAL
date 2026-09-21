@@ -262,7 +262,7 @@ else:
             df_productos,
             use_container_width=True
             )
-    st.divider()
+  st.divider()
 
 
 
