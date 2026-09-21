@@ -183,6 +183,13 @@ else:
   if 'productos' not in st.session_state:
     st.session_state.productos = []
     with st.form("crear_producto"):
+      nombre = st.text_input("Nombre del Producto")
+      costo_unitario = st.number_input("Costo Unitario", min_value=0.01, format="%.2f")
+      precio_unitario = st.number_input("Precio Unitario", min_value=0.01, format="%.2f")
+      stock_actual = st.number_input("Stock Actual", min_value=0, step=1)
+      stock_minimo = st.number_input("Stock Mínimo", min_value=0, step=1)
+      submit_button = st.form_submit_button("Guardar Producto")
+
 
    
 
