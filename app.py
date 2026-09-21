@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from libreria_funciones_proyecto1 import calcular_imc
-from libreria_clases_proyecto1 import InventarioProducto
+from librería_clases_proyecto1 import InventarioProducto
 
 st.title("Control de Gastos Personales")
 st.sidebar.title("Contenido")
