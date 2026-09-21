@@ -210,7 +210,7 @@ else:
                 st.dataframe(productos_reposicion, use_container_width=True)
             else:
                 st.info("Ningún producto necesita reposición.")
-     else:
+      else:
         st.info("No hay productos en el inventario.")
 
      
