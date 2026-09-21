@@ -199,7 +199,7 @@ else:
         st.dataframe(df)
     else:
         st.info("No hay productos en el inventario.")
-   def actualizar_producto_form():
+  def actualizar_producto_form():
     st.header("Actualizar Producto")
     if not st.session_state.productos:
         st.info("No hay productos para actualizar.")
