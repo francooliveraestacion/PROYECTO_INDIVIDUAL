@@ -177,7 +177,7 @@ else:
   st.write("Uso de clases desde una librería externa con operaciones CRUD")
   if "productos" not in st.session_state:
     st.session_state.productos = []
-  contenido = st..selectbox("Seleccione una opción:",[ "Home"])
+  contenido = st.selectbox("Seleccione una opción:",[ "Home"])
  
 
 
