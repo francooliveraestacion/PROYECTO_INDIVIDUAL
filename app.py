@@ -207,7 +207,7 @@ else:
         productos_data = [p.resumen() for p in st.session_state.productos]
         df = pd.DataFrame(productos_data)
         st.dataframe(df)
-    else:
+  else:
         st.info("No hay productos en el inventario.")
               
 
