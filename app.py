@@ -240,6 +240,22 @@ else:
             except ValueError as error:
                 st.error(f"Error al crear el producto: {error}" )
 st.divider()
+st.header("🔵 Leer productos")
+    if len(st.session_state.productos) == 0:
+        st.info("No existen productos registrados.")
+
+    else:
+        datos = []
+        for producto in st.session_state.productos:
+            resumen = producto.resumen()
+            datos.append({
+                "Producto": resumen["producto"],
+                "Stock actual": resumen["stock_actual"],
+                "Valor inventario": resumen["valor_inventario"],
+                "Margen unitario": resumen["margen_unitario"],
+                "Margen %": resumen["margen_pct"],
+                "Necesita reposición": resumen["necesita_reposicion"]
+            })
 
 
 
