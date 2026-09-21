@@ -183,13 +183,13 @@ else:
     )
 
     # Inicializar el inventario una sola vez durante la sesión
-    if "productos" not in st.session_state:
+  if "productos" not in st.session_state:
         st.session_state.productos = []
 
     # ---------------------------------------------------------
     # CREATE - Crear producto
     # ---------------------------------------------------------
-    def crear_producto_form():
+  def crear_producto_form():
         st.header("1. Crear nuevo producto")
 
         with st.form("crear_producto", clear_on_submit=True):
