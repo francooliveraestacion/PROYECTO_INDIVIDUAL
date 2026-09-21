@@ -201,7 +201,7 @@ else:
                     st.success(f"Producto '{nombre}' creado exitosamente!")
             except ValueError as e:
                 st.error(f"Error al crear producto: {e}")
-   def leer_productos():
+  def leer_productos():
    st.header("Listado de Productos")
    if st.session_state.productos:
         productos_data = [p.resumen() for p in st.session_state.productos]
