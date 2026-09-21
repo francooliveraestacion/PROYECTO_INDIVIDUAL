@@ -192,15 +192,7 @@ else:
       stock_minimo = st.number_input("Stock Mínimo", min_value=0, step=1)
       submit_button = st.form_submit_button("Guardar Producto")
      
-            try:
-                if any(p.nombre == nombre for p in st.session_state.productos):
-                    st.error(f"Ya existe un producto con el nombre '{nombre}'. Por favor, use un nombre diferente o actualice el producto existente.")
-                else:
-                    nuevo_producto = InventarioProducto(nombre, costo_unitario, precio_unitario, stock_actual, stock_minimo)
-                    st.session_state.productos.append(nuevo_producto)
-                    st.success(f"Producto '{nombre}' creado exitosamente!")
-            except ValueError as e:
-                st.error(f"Error al crear producto: {e}")
+  
   def leer_productos():
    st.header("Listado de Productos")
    if st.session_state.productos:
