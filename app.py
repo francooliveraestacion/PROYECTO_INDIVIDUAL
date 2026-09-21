@@ -244,7 +244,7 @@ st.header("🔵 Leer productos")
 if len(st.session_state.productos) == 0:
         st.info("No existen productos registrados.")
 
- else:
+else:
       datos = []
       for producto in st.session_state.productos:
           resumen = producto.resumen()
