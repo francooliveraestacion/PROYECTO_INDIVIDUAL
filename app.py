@@ -264,6 +264,108 @@ else:
             use_container_width=True
             )
   st.divider()
+  
+  st.header("🟡 Actualizar producto")
+
+    if len(st.session_state.productos) == 0:
+
+        st.info(
+            "Primero debe crear al menos un producto."
+        )
+
+    else:
+
+        nombres_productos = [
+            producto.nombre
+            for producto in st.session_state.productos
+        ]
+
+        producto_seleccionado = st.selectbox(
+            "Seleccione el producto que desea actualizar:",
+            nombres_productos,
+            key="actualizar_producto"
+        )
+
+        indice = nombres_productos.index(
+            producto_seleccionado
+        )
+
+        producto = st.session_state.productos[indice]
+
+        nuevo_nombre = st.text_input(
+            "Nombre",
+            value=producto.nombre,
+            key="actualizar_nombre"
+        )
+
+        nuevo_costo = st.number_input(
+            "Costo unitario",
+            min_value=0.01,
+            value=float(producto.costo_unitario),
+            step=0.01,
+            key="actualizar_costo"
+        )
+
+        nuevo_precio = st.number_input(
+            "Precio unitario",
+            min_value=0.01,
+            value=float(producto.precio_unitario),
+            step=0.01,
+            key="actualizar_precio"
+        )
+
+        nuevo_stock = st.number_input(
+            "Stock actual",
+            min_value=0,
+            value=int(producto.stock_actual),
+            step=1,
+            key="actualizar_stock"
+        )
+
+        nuevo_stock_minimo = st.number_input(
+            "Stock mínimo",
+            min_value=0,
+            value=int(producto.stock_minimo),
+            step=1,
+            key="actualizar_stock_minimo"
+        )
+
+        if st.button("✏️ Actualizar producto"):
+
+            if nuevo_nombre.strip() == "":
+
+                st.error(
+                    "El nombre del producto no puede estar vacío."
+                )
+
+            else:
+
+                try:
+
+                    producto_actualizado = InventarioProducto(
+                        nuevo_nombre,
+                        nuevo_costo,
+                        nuevo_precio,
+                        nuevo_stock,
+                        nuevo_stock_minimo
+                    )
+
+                    st.session_state.productos[indice] = (
+                        producto_actualizado
+                    )
+
+                    st.success(
+                        "Producto actualizado correctamente."
+                    )
+
+                    st.rerun()
+
+                except ValueError as error:
+
+                    st.error(
+                        f"Error al actualizar: {error}"
+                    )
+
 
 
 
