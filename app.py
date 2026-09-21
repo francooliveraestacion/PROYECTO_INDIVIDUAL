@@ -214,6 +214,8 @@ else:
         step=1,
         key="crear_stock_minimo"
     )
+if st.button("➕ Crear producto"):
+
 
    
 
