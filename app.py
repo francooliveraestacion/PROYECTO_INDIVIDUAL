@@ -177,104 +177,369 @@ else:
   st.write(
         """
         En este ejercicio utilizamos la clase `InventarioProducto`
-        desde una librería externa para realizar operaciones CRUD.
+        desde una librería externa para realizar operaciones CRUD:
+        crear, consultar, actualizar y eliminar productos.
         """
     )
-  if 'productos' not in st.session_state:
-    st.session_state.productos = []
-  def crear_producto_form():
-    st.header("Crear Nuevo Producto")
-  with st.form("crear_producto"):
-      nombre = st.text_input("Nombre del Producto")
-      costo_unitario = st.number_input("Costo Unitario", min_value=0.01, format="%.2f")
-      precio_unitario = st.number_input("Precio Unitario", min_value=0.01, format="%.2f")
-      stock_actual = st.number_input("Stock Actual", min_value=0, step=1)
-      stock_minimo = st.number_input("Stock Mínimo", min_value=0, step=1)
-      submit_button = st.form_submit_button("Guardar Producto")
-  def leer_productos():
-    st.header("Listado de Productos")
-    if st.session_state.productos:
-        tab1, tab2 = st.tabs(["Todos los Productos", "Productos que necesitan reposición"])
 
-        productos_data = [p.resumen() for p in st.session_state.productos]
-        df = pd.DataFrame(productos_data)
+    # Inicializar el inventario una sola vez durante la sesión
+    if "productos" not in st.session_state:
+        st.session_state.productos = []
 
-        with tab1:
-            st.subheader("Inventario Completo")
-            if not df.empty:
-                st.dataframe(df, use_container_width=True)
-            else:
-                st.info("No hay productos en el inventario.")
+    # ---------------------------------------------------------
+    # CREATE - Crear producto
+    # ---------------------------------------------------------
+    def crear_producto_form():
+        st.header("1. Crear nuevo producto")
 
-        with tab2:
-            st.subheader("Productos a Reponer")
-            productos_reposicion = df[df['necesita_reposicion'] == True]
-            if not productos_reposicion.empty:
-                st.dataframe(productos_reposicion, use_container_width=True)
-            else:
-                st.info("Ningún producto necesita reposición.")
-    else:
-        st.info("No hay productos en el inventario.")
-  def actualizar_producto_form():
-    st.header("Actualizar Producto")
-    if not st.session_state.productos:
-        st.info("No hay productos para actualizar.")
-        return
+        with st.form("crear_producto", clear_on_submit=True):
+            nombre = st.text_input("Nombre del producto")
+            costo_unitario = st.number_input(
+                "Costo unitario",
+                min_value=0.01,
+                step=0.01,
+                format="%.2f"
+            )
+            precio_unitario = st.number_input(
+                "Precio unitario",
+                min_value=0.01,
+                step=0.01,
+                format="%.2f"
+            )
+            stock_actual = st.number_input(
+                "Stock actual",
+                min_value=0,
+                step=1
+            )
+            stock_minimo = st.number_input(
+                "Stock mínimo",
+                min_value=0,
+                step=1
+            )
 
-    nombres_productos = [p.nombre for p in st.session_state.productos]
-    producto_seleccionado_nombre = st.selectbox("Seleccionar Producto a Actualizar", nombres_productos)
-    
-    if producto_seleccionado_nombre:
-        # Find the product object
-        producto_idx = next((i for i, p in enumerate(st.session_state.productos) if p.nombre == producto_seleccionado_nombre), None)
-        if producto_idx is not None:
-            producto_a_actualizar = st.session_state.productos[producto_idx]
+            guardar = st.form_submit_button("Guardar producto")
 
-            with st.form("actualizar_producto"):
-                st.write(f"Editando producto: **{producto_a_actualizar.nombre}**")
-                nuevo_nombre = st.text_input("Nombre del Producto", value=producto_a_actualizar.nombre)
-                nuevo_costo_unitario = st.number_input("Costo Unitario", value=producto_a_actualizar.costo_unitario, min_value=0.01, format="%.2f")
-                nuevo_precio_unitario = st.number_input("Precio Unitario", value=producto_a_actualizar.precio_unitario, min_value=0.01, format="%.2f")
-                nuevo_stock_actual = st.number_input("Stock Actual", value=producto_a_actualizar.stock_actual, min_value=0, step=1)
-                nuevo_stock_minimo = st.number_input("Stock Mínimo", value=producto_a_actualizar.stock_minimo, min_value=0, step=1)
-                
-                update_button = st.form_submit_button("Actualizar")
+        if guardar:
+            nombre_limpio = nombre.strip()
 
-                if update_button:
-                    try:
-                        # Validate if the new name clashes with another existing product (if name changed)
-                        if nuevo_nombre != producto_seleccionado_nombre and any(p.nombre == nuevo_nombre for p in st.session_state.productos if p.nombre != producto_seleccionado_nombre):
-                            st.error(f"Ya existe otro producto con el nombre '{nuevo_nombre}'.")
-                        else:
-                            # Create a temporary instance to validate values before assigning to the actual object
-                            temp_product = InventarioProducto(nuevo_nombre, nuevo_costo_unitario, nuevo_precio_unitario, nuevo_stock_actual, nuevo_stock_minimo)
-                            
-                            producto_a_actualizar.nombre = nuevo_nombre
-                            producto_a_actualizar.costo_unitario = nuevo_costo_unitario
-                            producto_a_actualizar.precio_unitario = nuevo_precio_unitario
-                            producto_a_actualizar.stock_actual = nuevo_stock_actual
-                            producto_a_actualizar.stock_minimo = nuevo_stock_minimo
-                            st.success(f"Producto '{nuevo_nombre}' actualizado exitosamente!")
-                            # If the name changed, rerun to update the selectbox options
-                            if producto_seleccionado_nombre != nuevo_nombre:
-                                st.experimental_rerun()
-                    except ValueError as e:
-                        st.error(f"Error al actualizar producto: {e}")
+            if nombre_limpio == "":
+                st.warning("Ingrese el nombre del producto.")
+                return
+
+            if any(
+                p.nombre.strip().lower() == nombre_limpio.lower()
+                for p in st.session_state.productos
+            ):
+                st.warning("Ya existe un producto con ese nombre.")
+                return
+
+            try:
+                nuevo_producto = InventarioProducto(
+                    nombre_limpio,
+                    costo_unitario,
+                    precio_unitario,
+                    stock_actual,
+                    stock_minimo
+                )
+
+                st.session_state.productos.append(nuevo_producto)
+                st.success(
+                    f"Producto '{nombre_limpio}' guardado correctamente."
+                )
+
+            except ValueError as error:
+                st.error(f"No se pudo guardar el producto: {error}")
+
+            except Exception as error:
+                st.error(f"Ocurrió un error al guardar el producto: {error}")
+
+    # ---------------------------------------------------------
+    # READ - Mostrar productos
+    # ---------------------------------------------------------
+    def leer_productos():
+        st.header("2. Listado de productos")
+
+        if not st.session_state.productos:
+            st.info("No hay productos registrados.")
+            return
+
+        try:
+            productos_data = [
+                producto.resumen()
+                for producto in st.session_state.productos
+            ]
+
+            df_productos = pd.DataFrame(productos_data)
+
+            tab1, tab2 = st.tabs(
+                [
+                    "Todos los productos",
+                    "Productos que necesitan reposición"
+                ]
+            )
+
+            with tab1:
+                st.dataframe(
+                    df_productos,
+                    use_container_width=True,
+                    hide_index=True
+                )
+
+            with tab2:
+                if "necesita_reposicion" in df_productos.columns:
+                    df_reposicion = df_productos[
+                        df_productos["necesita_reposicion"] == True
+                    ]
+
+                    if not df_reposicion.empty:
+                        st.dataframe(
+                            df_reposicion,
+                            use_container_width=True,
+                            hide_index=True
+                        )
+                    else:
+                        st.success(
+                            "Ningún producto necesita reposición."
+                        )
+                else:
+                    st.warning(
+                        "El método resumen() no devuelve la columna "
+                        "'necesita_reposicion'."
+                    )
+
+        except Exception as error:
+            st.error(
+                f"No se pudo mostrar el inventario: {error}"
+            )
+
+    # ---------------------------------------------------------
+    # UPDATE - Actualizar producto
+    # ---------------------------------------------------------
+    def actualizar_producto_form():
+        st.header("3. Actualizar producto")
+
+        if not st.session_state.productos:
+            st.info("No hay productos para actualizar.")
+            return
+
+        nombres_productos = [
+            producto.nombre
+            for producto in st.session_state.productos
+        ]
+
+        producto_seleccionado = st.selectbox(
+            "Seleccione el producto a actualizar",
+            nombres_productos,
+            key="producto_actualizar"
+        )
+
+        producto_idx = next(
+            (
+                i
+                for i, producto in enumerate(
+                    st.session_state.productos
+                )
+                if producto.nombre == producto_seleccionado
+            ),
+            None
+        )
+
+        if producto_idx is None:
+            st.error("No se encontró el producto seleccionado.")
+            return
+
+        producto_actual = st.session_state.productos[producto_idx]
+
+        with st.form("actualizar_producto"):
+            nuevo_nombre = st.text_input(
+                "Nombre del producto",
+                value=producto_actual.nombre
+            )
+
+            nuevo_costo = st.number_input(
+                "Costo unitario",
+                min_value=0.01,
+                value=float(producto_actual.costo_unitario),
+                step=0.01,
+                format="%.2f"
+            )
+
+            nuevo_precio = st.number_input(
+                "Precio unitario",
+                min_value=0.01,
+                value=float(producto_actual.precio_unitario),
+                step=0.01,
+                format="%.2f"
+            )
+
+            nuevo_stock_actual = st.number_input(
+                "Stock actual",
+                min_value=0,
+                value=int(producto_actual.stock_actual),
+                step=1
+            )
+
+            nuevo_stock_minimo = st.number_input(
+                "Stock mínimo",
+                min_value=0,
+                value=int(producto_actual.stock_minimo),
+                step=1
+            )
+
+            actualizar = st.form_submit_button(
+                "Actualizar producto"
+            )
+
+        if actualizar:
+            nuevo_nombre = nuevo_nombre.strip()
+
+            if nuevo_nombre == "":
+                st.warning("Ingrese el nombre del producto.")
+                return
+
+            nombre_repetido = any(
+                i != producto_idx
+                and producto.nombre.strip().lower()
+                == nuevo_nombre.lower()
+                for i, producto in enumerate(
+                    st.session_state.productos
+                )
+            )
+
+            if nombre_repetido:
+                st.warning(
+                    "Ya existe otro producto con ese nombre."
+                )
+                return
+
+            try:
+                # Se crea nuevamente el objeto para que se ejecuten
+                # las validaciones definidas en InventarioProducto.
+                producto_actualizado = InventarioProducto(
+                    nuevo_nombre,
+                    nuevo_costo,
+                    nuevo_precio,
+                    nuevo_stock_actual,
+                    nuevo_stock_minimo
+                )
+
+                st.session_state.productos[
+                    producto_idx
+                ] = producto_actualizado
+
+                st.success(
+                    f"Producto '{nuevo_nombre}' actualizado "
+                    "correctamente."
+                )
+                st.rerun()
+
+            except ValueError as error:
+                st.error(
+                    f"No se pudo actualizar el producto: {error}"
+                )
+
+            except Exception as error:
+                st.error(
+                    f"Ocurrió un error al actualizar: {error}"
+                )
+
+    # ---------------------------------------------------------
+    # DELETE - Eliminar producto
+    # ---------------------------------------------------------
     def eliminar_producto_form():
-     st.header("Eliminar Producto")
-     if not st.session_state.productos:
-        st.info("No hay productos para eliminar.")
-        return
+        st.header("4. Eliminar producto")
 
-     nombres_productos = [p.nombre for p in st.session_state.productos]
-     producto_a_eliminar_nombre = st.selectbox("Seleccionar Producto a Eliminar", nombres_productos)
+        if not st.session_state.productos:
+            st.info("No hay productos para eliminar.")
+            return
 
-     if producto_a_eliminar_nombre:
-        if st.button(f"Eliminar '{producto_a_eliminar_nombre}'"): # Add a confirmation button
-            st.session_state.productos = [p for p in st.session_state.productos if p.nombre != producto_a_eliminar_nombre]
-            st.success(f"Producto '{producto_a_eliminar_nombre}' eliminado exitosamente.")
-            st.experimental_rerun() # Rerun to update the selectbox and product list
-    
+        nombres_productos = [
+            producto.nombre
+            for producto in st.session_state.productos
+        ]
+
+        producto_a_eliminar = st.selectbox(
+            "Seleccione el producto a eliminar",
+            nombres_productos,
+            key="producto_eliminar"
+        )
+
+        confirmar = st.checkbox(
+            f"Confirmo que deseo eliminar "
+            f"'{producto_a_eliminar}'"
+        )
+
+        if st.button(
+            "Eliminar producto",
+            type="primary"
+        ):
+            if not confirmar:
+                st.warning(
+                    "Debe confirmar la eliminación."
+                )
+                return
+
+            st.session_state.productos = [
+                producto
+                for producto in st.session_state.productos
+                if producto.nombre != producto_a_eliminar
+            ]
+
+            st.success(
+                f"Producto '{producto_a_eliminar}' eliminado."
+            )
+            st.rerun()
+
+    # ---------------------------------------------------------
+    # MENÚ CRUD DEL EJERCICIO 4
+    # ---------------------------------------------------------
+    opcion_crud = st.radio(
+        "Seleccione una operación",
+        [
+            "Crear",
+            "Consultar",
+            "Actualizar",
+            "Eliminar"
+        ],
+        horizontal=True
+    )
+
+    if opcion_crud == "Crear":
+        crear_producto_form()
+
+    elif opcion_crud == "Consultar":
+        leer_productos()
+
+    elif opcion_crud == "Actualizar":
+        actualizar_producto_form()
+
+    elif opcion_crud == "Eliminar":
+        eliminar_producto_form()
+
+    st.divider()
+    st.subheader("Resumen actual del inventario")
+
+    if st.session_state.productos:
+        try:
+            df_resumen = pd.DataFrame(
+                [
+                    producto.resumen()
+                    for producto in st.session_state.productos
+                ]
+            )
+            st.dataframe(
+                df_resumen,
+                use_container_width=True,
+                hide_index=True
+            )
+        except Exception as error:
+            st.error(
+                f"No se pudo generar el resumen: {error}"
+            )
+    else:
+        st.info("Todavía no existen productos registrados.")
+
+
 
 
               
