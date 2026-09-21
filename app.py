@@ -193,75 +193,7 @@ else:
       submit_button = st.form_submit_button("Guardar Producto")
      
   
-  def leer_productos():
-   st.header("Listado de Productos")
-   if st.session_state.productos:
-        productos_data = [p.resumen() for p in st.session_state.productos]
-        df = pd.DataFrame(productos_data)
-        st.dataframe(df)
-   else:
-        st.info("No hay productos en el inventario.")
-  def actualizar_producto_form():
-    st.header("Actualizar Producto")
-    if not st.session_state.productos:
-        st.info("No hay productos para actualizar.")
-        return
 
-    nombres_productos = [p.nombre for p in st.session_state.productos]
-    producto_seleccionado_nombre = st.selectbox("Seleccionar Producto a Actualizar", nombres_productos)
-    
-    if producto_seleccionado_nombre:
-        # Find the product object
-        producto_idx = next((i for i, p in enumerate(st.session_state.productos) if p.nombre == producto_seleccionado_nombre), None)
-        if producto_idx is not None:
-            producto_a_actualizar = st.session_state.productos[producto_idx]
-
-            with st.form("actualizar_producto"):
-                st.write(f"Editando producto: **{producto_a_actualizar.nombre}**")
-                nuevo_nombre = st.text_input("Nombre del Producto", value=producto_a_actualizar.nombre)
-                nuevo_costo_unitario = st.number_input("Costo Unitario", value=producto_a_actualizar.costo_unitario, min_value=0.01, format="%.2f")
-                nuevo_precio_unitario = st.number_input("Precio Unitario", value=producto_a_actualizar.precio_unitario, min_value=0.01, format="%.2f")
-                nuevo_stock_actual = st.number_input("Stock Actual", value=producto_a_actualizar.stock_actual, min_value=0, step=1)
-                nuevo_stock_minimo = st.number_input("Stock Mínimo", value=producto_a_actualizar.stock_minimo, min_value=0, step=1)
-                
-                update_button = st.form_submit_button("Actualizar")
-
-                if update_button:
-                    try:
-                        # Validate if the new name clashes with another existing product (if name changed)
-                        if nuevo_nombre != producto_seleccionado_nombre and any(p.nombre == nuevo_nombre for p in st.session_state.productos if p.nombre != producto_seleccionado_nombre):
-                            st.error(f"Ya existe otro producto con el nombre '{nuevo_nombre}'.")
-                        else:
-                            # Create a temporary instance to validate values before assigning to the actual object
-                            temp_product = InventarioProducto(nuevo_nombre, nuevo_costo_unitario, nuevo_precio_unitario, nuevo_stock_actual, nuevo_stock_minimo)
-                            
-                            producto_a_actualizar.nombre = nuevo_nombre
-                            producto_a_actualizar.costo_unitario = nuevo_costo_unitario
-                            producto_a_actualizar.precio_unitario = nuevo_precio_unitario
-                            producto_a_actualizar.stock_actual = nuevo_stock_actual
-                            producto_a_actualizar.stock_minimo = nuevo_stock_minimo
-                            st.success(f"Producto '{nuevo_nombre}' actualizado exitosamente!")
-                            # If the name changed, rerun to update the selectbox options
-                            if producto_seleccionado_nombre != nuevo_nombre:
-                                st.experimental_rerun()
-                    except ValueError as e:
-                        st.error(f"Error al actualizar producto: {e}")
-    def eliminar_producto_form():
-     st.header("Eliminar Producto")
-     if not st.session_state.productos:
-        st.info("No hay productos para eliminar.")
-        return
-
-     nombres_productos = [p.nombre for p in st.session_state.productos]
-     producto_a_eliminar_nombre = st.selectbox("Seleccionar Producto a Eliminar", nombres_productos)
-
-     if producto_a_eliminar_nombre:
-        if st.button(f"Eliminar '{producto_a_eliminar_nombre}'"): 
-            st.session_state.productos = [p for p in st.session_state.productos if p.nombre != producto_a_eliminar_nombre]
-            st.success(f"Producto '{producto_a_eliminar_nombre}' eliminado exitosamente.")
-            st.experimental_rerun() # Rerun to update the selectbox and product list
-                    
-    
               
 
 
