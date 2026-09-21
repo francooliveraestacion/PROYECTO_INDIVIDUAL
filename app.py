@@ -6,9 +6,10 @@ from librería_clases_proyecto1 import InventarioProducto, validar_positivo
 
 st.title("Control de Gastos Personales")
 st.sidebar.title("Contenido")
-contenido=st.sidebar.selectbox("",["Home","Ejerccio 1","Ejerccio 2",
-                     "Ejerccio 3","Ejerccio 4"])
+contenido=st.sidebar.selectbox("",["Home","Ejercicio 1","Ejercicio 2",
+                     "Ejercicio 3","Ejercicio 4"])
 if contenido =="Home":
+  st.image("personal.png")
   st.write("Te encuentras en el modulo de home")
   st.subheader("Estudiante")
   st.write ("Franco Olivera Estacion")
