@@ -446,7 +446,7 @@ else:
     # ---------------------------------------------------------
     # DELETE - Eliminar producto
     # ---------------------------------------------------------
-    def eliminar_producto_form():
+  def eliminar_producto_form():
         st.header("4. Eliminar producto")
 
         if not st.session_state.productos:
