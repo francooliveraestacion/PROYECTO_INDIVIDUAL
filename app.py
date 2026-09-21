@@ -267,13 +267,13 @@ else:
   
   st.header("🟡 Actualizar producto")
 
-    if len(st.session_state.productos) == 0:
+  if len(st.session_state.productos) == 0:
 
         st.info(
             "Primero debe crear al menos un producto."
         )
 
-    else:
+  else:
 
         nombres_productos = [
             producto.nombre
