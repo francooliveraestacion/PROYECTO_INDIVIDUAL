@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from libreria_funciones_proyecto1 import calcular_imc
+from librería_clases_proyecto1 import InventarioProducto
 
 st.title("Control de Gastos Personales")
 st.sidebar.title("Contenido")
@@ -170,18 +171,12 @@ elif contenido ==("Ejerccio 3"):
     st.dataframe( df_historial, use_container_width=True, hide_index=True )
   else:st.info( "Todavía no se han registrado resultados.")
 
- 
-    
-    
-
-
- 
-    
-  
-
-
 else:
   st.write("Te encuentras en el modulo de Ejerccio 4")
+  st.set_page_config(
+    page_title="Inventario",
+    page_icon="📦",
+    layout="wide")
 
 
 
