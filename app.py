@@ -239,6 +239,8 @@ else:
                 st.success(f"Producto '{nombre}' creado correctamente.")
             except ValueError as error:
                 st.error(f"Error al crear el producto: {error}" )
+st.divider()
+
 
 
 
