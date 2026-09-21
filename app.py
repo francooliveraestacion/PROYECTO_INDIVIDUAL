@@ -222,7 +222,7 @@ else:
 
     elif precio_unitario < costo_unitario:
             st.warning( "El precio unitario es menor que el costo unitario.")
-     else:
+    else:
 
             try:
 
