@@ -255,15 +255,15 @@ else:
                     except ValueError as e:
                         st.error(f"Error al actualizar producto: {e}")
     def eliminar_producto_form():
-    st.header("Eliminar Producto")
-    if not st.session_state.productos:
+     st.header("Eliminar Producto")
+     if not st.session_state.productos:
         st.info("No hay productos para eliminar.")
         return
 
-    nombres_productos = [p.nombre for p in st.session_state.productos]
-    producto_a_eliminar_nombre = st.selectbox("Seleccionar Producto a Eliminar", nombres_productos)
+     nombres_productos = [p.nombre for p in st.session_state.productos]
+     producto_a_eliminar_nombre = st.selectbox("Seleccionar Producto a Eliminar", nombres_productos)
 
-    if producto_a_eliminar_nombre:
+     if producto_a_eliminar_nombre:
         if st.button(f"Eliminar '{producto_a_eliminar_nombre}'"): 
             st.session_state.productos = [p for p in st.session_state.productos if p.nombre != producto_a_eliminar_nombre]
             st.success(f"Producto '{producto_a_eliminar_nombre}' eliminado exitosamente.")
