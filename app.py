@@ -184,7 +184,7 @@ else:
     st.session_state.productos = []
   def crear_producto_form():
     st.header("Crear Nuevo Producto")
-    with st.form("crear_producto"):
+  with st.form("crear_producto"):
       nombre = st.text_input("Nombre del Producto")
       costo_unitario = st.number_input("Costo Unitario", min_value=0.01, format="%.2f")
       precio_unitario = st.number_input("Precio Unitario", min_value=0.01, format="%.2f")
