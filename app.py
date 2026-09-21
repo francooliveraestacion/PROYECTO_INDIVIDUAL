@@ -176,7 +176,7 @@ else:
   st.set_page_config(
     page_title="Inventario",
     page_icon="📦",
-    layout="wide")
+    )
 
 
 
