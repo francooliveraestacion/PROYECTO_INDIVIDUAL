@@ -256,12 +256,12 @@ else:
               "Margen %": resumen["margen_pct"],
                "Necesita reposición": resumen["necesita_reposicion"]
            })
-         df_productos = pd.DataFrame(datos)
+          df_productos = pd.DataFrame(datos)
 
-         st.dataframe(
+          st.dataframe(
             df_productos,
             use_container_width=True
-           )
+            )
      st.divider()
 
 
