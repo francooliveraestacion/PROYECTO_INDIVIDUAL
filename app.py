@@ -175,10 +175,9 @@ else:
   st.write("Te encuentras en el modulo de Ejerccio 4")
   st.title("📦  Gestión de Inventario")
   st.write("Uso de clases desde una librería externa con operaciones CRUD")
-  st.title("📦 Ejercicio 4 - Gestión de Inventario")
   if "productos" not in st.session_state:
     st.session_state.productos = []
-  contenido = st.sidebar.selectbox("Seleccione una opción:",[ "Home", ])
+  contenido = st..selectbox("Seleccione una opción:",[ "Home", ])
  
 
 
