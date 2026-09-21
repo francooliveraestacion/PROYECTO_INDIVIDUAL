@@ -9,7 +9,7 @@ st.sidebar.title("Contenido")
 contenido=st.sidebar.selectbox("",["Home","Ejercicio 1","Ejercicio 2",
                      "Ejercicio 3","Ejercicio 4"])
 if contenido =="Home":
-  st.write(" 🏡Te encuentras en el modulo de home")
+  st.write("Te encuentras en el modulo de home")
   st.subheader("Estudiante")
   st.write ("Franco Olivera Estacion")
   st.write("Modulo: Python Fundamentals")
