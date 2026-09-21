@@ -207,6 +207,13 @@ else:
         step=1,
         key="crear_stock"
     )
+   stock_minimo = st.number_input(
+        "Stock mínimo",
+        min_value=0,
+        value=0,
+        step=1,
+        key="crear_stock_minimo"
+    )
 
    
 
