@@ -216,6 +216,30 @@ else:
         step=1,
         key="crear_stock_minimo"
     )
+  if st.button("➕ Crear producto"):
+    if nombre.strip() == "":
+            st.error("Debe ingresar el nombre del producto.")
+
+    elif precio_unitario < costo_unitario:
+            st.warning( "El precio unitario es menor que el costo unitario.")
+     else:
+
+            try:
+
+                nuevo_producto = InventarioProducto(
+                    nombre,
+                    costo_unitario,
+                    precio_unitario,
+                    stock_actual,
+                    stock_minimo
+                )
+
+                st.session_state.productos.append(nuevo_producto )
+
+                st.success(f"Producto '{nombre}' creado correctamente.")
+              except ValueError as error:
+                st.error(f"Error al crear el producto: {error}" )
+
 
 
 
