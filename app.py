@@ -186,6 +186,37 @@ else:
         "Nombre del producto",
         key="crear_nombre"
     )
+  costo_unitario = st.number_input(
+        "Costo unitario",
+        min_value=0.01,
+        value=1.00,
+        step=0.01,
+        key="crear_costo"
+    )
+  precio_unitario = st.number_input(
+        "Precio unitario",
+        min_value=0.01,
+        value=2.00,
+        step=0.01,
+        key="crear_precio"
+    )
+  stock_actual = st.number_input(
+        "Stock actual",
+        min_value=0,
+        value=0,
+        step=1,
+        key="crear_stock"
+    )
+
+    stock_minimo = st.number_input(
+        "Stock mínimo",
+        min_value=0,
+        value=0,
+        step=1,
+        key="crear_stock_minimo"
+    )
+
+  
  
   
 
