@@ -182,28 +182,7 @@ else:
     )
   if 'productos' not in st.session_state:
     st.session_state.productos = []
-    def crear_producto_form():
-  st.header("Crear Nuevo Producto")
     with st.form("crear_producto"):
-        nombre = st.text_input("Nombre del Producto")
-        costo_unitario = st.number_input("Costo Unitario", min_value=0.01, format="%.2f")
-        precio_unitario = st.number_input("Precio Unitario", min_value=0.01, format="%.2f")
-        stock_actual = st.number_input("Stock Actual", min_value=0, step=1)
-        stock_minimo = st.number_input("Stock Mínimo", min_value=0, step=1)
-        submit_button = st.form_submit_button("Guardar Producto")
-
-        if submit_button:
-            try:
-                # Check for duplicate product names (optional, but good practice)
-                if any(p.nombre == nombre for p in st.session_state.productos):
-                    st.error(f"Ya existe un producto con el nombre '{nombre}'. Por favor, use un nombre diferente o actualice el producto existente.")
-                else:
-                    nuevo_producto = InventarioProducto(nombre, costo_unitario, precio_unitario, stock_actual, stock_minimo)
-                    st.session_state.productos.append(nuevo_producto)
-                    st.success(f"Producto '{nombre}' creado exitosamente!")
-            except ValueError as e:
-                st.error(f"Error al crear producto: {e}")
-
 
    
 
