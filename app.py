@@ -173,6 +173,9 @@ elif contenido ==("Ejerccio 3"):
 
 else:
   st.write("Te encuentras en el modulo de Ejerccio 4")
+  st.title("📦  Gestión de Inventario")
+  st.write("Uso de clases desde una librería externa con operaciones CRUD")
+
  
 
 
