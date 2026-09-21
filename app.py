@@ -256,7 +256,7 @@ else:
     # ---------------------------------------------------------
     # READ - Mostrar productos
     # ---------------------------------------------------------
-    def leer_productos():
+  def leer_productos():
         st.header("2. Listado de productos")
 
         if not st.session_state.productos:
