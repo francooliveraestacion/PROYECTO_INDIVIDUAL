@@ -33,7 +33,7 @@ de información y el seguimiento de los principales indicadores.
 📉 Matplotlib
 """)
 elif contenido ==("Ejercicio 1"):
-    st.write("Te encuentras en el modulo de Ejercicio 1")
+    st.write("✅Te encuentras en el modulo de Ejercicio 1")
     st.subheader("Flujo de caja")
 
     st.markdown(
@@ -109,7 +109,7 @@ elif contenido ==("Ejercicio 1"):
 
 
 elif contenido ==("Ejercicio 2"):
-  st.write("Te encuentras en el modulo de Ejerccio 2")
+  st.write("✅Te encuentras en el modulo de Ejerccio 2")
   st.title("Registro de productos")
   if "registros" not in st.session_state:
     st.session_state.registros = np.empty((0, 5), dtype=object)
@@ -134,7 +134,7 @@ elif contenido ==("Ejercicio 2"):
   else: st.info("Aún no hay productos registrados.")
       
 elif contenido ==("Ejercicio 3"):
-  st.write("Te encuentras en el modulo de Ejercicio 3")
+  st.write("✅Te encuentras en el modulo de Ejercicio 3")
   st.title("Uso de funciones desde una librería externa")
   if "historial" not in st.session_state: st.session_state.historial = []
   st.header("1. Selección de función")
@@ -172,7 +172,7 @@ elif contenido ==("Ejercicio 3"):
   else:st.info( "Todavía no se han registrado resultados.")
 
 else:
-  st.write("Te encuentras en el modulo de Ejercicio 4")
+  st.write("✅Te encuentras en el modulo de Ejercicio 4")
   st.title("📦  Gestión de Inventario")
   st.write(
         """
