@@ -195,14 +195,17 @@ else:
     st.header("Listado de Productos")
     if st.session_state.productos:
         tab1, tab2 = st.tabs(["Todos los Productos", "Productos que necesitan reposición"])
+
         productos_data = [p.resumen() for p in st.session_state.productos]
         df = pd.DataFrame(productos_data)
+
         with tab1:
             st.subheader("Inventario Completo")
             if not df.empty:
                 st.dataframe(df, use_container_width=True)
             else:
                 st.info("No hay productos en el inventario.")
+
         with tab2:
             st.subheader("Productos a Reponer")
             productos_reposicion = df[df['necesita_reposicion'] == True]
@@ -210,11 +213,8 @@ else:
                 st.dataframe(productos_reposicion, use_container_width=True)
             else:
                 st.info("Ningún producto necesita reposición.")
-      else:
+    else:
         st.info("No hay productos en el inventario.")
-
-     
-  
 
               
 
