@@ -242,6 +242,7 @@ else:
   st.divider()
   st.header("🔵 Leer productos")
   if len(st.session_state.productos) == 0:
+
         st.info("No existen productos registrados.")
 
   else:
