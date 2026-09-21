@@ -504,22 +504,22 @@ else:
         horizontal=True
     )
 
-    if opcion_crud == "Crear":
+  if opcion_crud == "Crear":
         crear_producto_form()
 
-    elif opcion_crud == "Consultar":
+  elif opcion_crud == "Consultar":
         leer_productos()
 
-    elif opcion_crud == "Actualizar":
+  elif opcion_crud == "Actualizar":
         actualizar_producto_form()
 
-    elif opcion_crud == "Eliminar":
+  elif opcion_crud == "Eliminar":
         eliminar_producto_form()
 
-    st.divider()
-    st.subheader("Resumen actual del inventario")
+  st.divider()
+  st.subheader("Resumen actual del inventario")
 
-    if st.session_state.productos:
+  if st.session_state.productos:
         try:
             df_resumen = pd.DataFrame(
                 [
