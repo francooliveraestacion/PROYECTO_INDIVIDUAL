@@ -493,7 +493,7 @@ else:
     # ---------------------------------------------------------
     # MENÚ CRUD DEL EJERCICIO 4
     # ---------------------------------------------------------
-    opcion_crud = st.radio(
+  opcion_crud = st.radio(
         "Seleccione una operación",
         [
             "Crear",
