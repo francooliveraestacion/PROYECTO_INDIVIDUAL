@@ -239,13 +239,13 @@ else:
                 st.success(f"Producto '{nombre}' creado correctamente.")
             except ValueError as error:
                 st.error(f"Error al crear el producto: {error}" )
-  st.divider()
+st.divider()
   
-  st.header("🔵 Leer productos")
-  if len(st.session_state["productos"]) == 0:
+st.header("🔵 Leer productos")
+if len(st.session_state["productos"]) == 0:
     st.info("No existen productos registrados.")
 
-  else:
+else:
     datos = []
 
     for producto in st.session_state["productos"]:
