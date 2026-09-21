@@ -174,11 +174,20 @@ elif contenido ==("Ejerccio 3"):
 else:
   st.write("Te encuentras en el modulo de Ejerccio 4")
   st.title("📦  Gestión de Inventario")
-  st.write("Uso de clases desde una librería externa con operaciones CRUD")
-  if "productos" not in st.session_state:
-    st.session_state.productos = []
-  contenido = st.selectbox("Seleccione una opción:",[ "Home"])
+  st.write(
+        """
+        En este ejercicio utilizamos la clase `InventarioProducto`
+        desde una librería externa para realizar operaciones CRUD.
+        """
+    )
+  st.header("🟢 Crear producto")
+
+  nombre = st.text_input(
+        "Nombre del producto",
+        key="crear_nombre"
+    )
  
+  
 
 
 
