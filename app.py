@@ -173,10 +173,7 @@ elif contenido ==("Ejerccio 3"):
 
 else:
   st.write("Te encuentras en el modulo de Ejerccio 4")
-  st.set_page_config(
-    page_title="Inventario",
-    page_icon="📦",
-    )
+ 
 
 
 
