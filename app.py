@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from libreria_funciones_proyecto1 import calcular_imc
-from librería_clases_proyecto1 import InventarioProducto
+from libreria_clases_proyecto1 import InventarioProducto, validar_positivo
 
 st.title("Control de Gastos Personales")
 st.sidebar.title("Contenido")
@@ -180,160 +180,29 @@ else:
         desde una librería externa para realizar operaciones CRUD.
         """
     )
-  st.header("🟢 Crear producto")
+  if 'productos' not in st.session_state:
+    st.session_state.productos = []
+    def crear_producto_form():
+    st.header("Crear Nuevo Producto")
+    with st.form("crear_producto"):
+        nombre = st.text_input("Nombre del Producto")
+        costo_unitario = st.number_input("Costo Unitario", min_value=0.01, format="%.2f")
+        precio_unitario = st.number_input("Precio Unitario", min_value=0.01, format="%.2f")
+        stock_actual = st.number_input("Stock Actual", min_value=0, step=1)
+        stock_minimo = st.number_input("Stock Mínimo", min_value=0, step=1)
+        submit_button = st.form_submit_button("Guardar Producto")
 
-  nombre = st.text_input(
-        "Nombre del producto",
-        key="crear_nombre"
-    )
-  costo_unitario = st.number_input(
-        "Costo unitario",
-        min_value=0.01,
-        value=1.00,
-        step=0.01,
-        key="crear_costo"
-    )
-  precio_unitario = st.number_input(
-        "Precio unitario",
-        min_value=0.01,
-        value=2.00,
-        step=0.01,
-        key="crear_precio"
-    )
-  stock_actual = st.number_input(
-        "Stock actual",
-        min_value=0,
-        value=0,
-        step=1,
-        key="crear_stock"
-    )
-      
-
-  stock_minimo = st.number_input(
-        "Stock mínimo",
-        min_value=0,
-        value=0,
-        step=1,
-        key="crear_stock_minimo"
-    )
-  if st.button("➕ Crear producto"):
-    if nombre.strip() == "":
-            st.error("Debe ingresar el nombre del producto.")
-
-    elif precio_unitario < costo_unitario:
-            st.warning( "El precio unitario es menor que el costo unitario.")
-    else:
-
+        if submit_button:
             try:
-
-                nuevo_producto = InventarioProducto(
-                    nombre,
-                    costo_unitario,
-                    precio_unitario,
-                    stock_actual,
-                    stock_minimo
-                )
-
-                st.session_state.productos.append(nuevo_producto)
-
-                st.success(f"Producto '{nombre}' creado correctamente.")
-            except ValueError as error:
-                st.error(f"Error al crear el producto: {error}" )
-st.divider()
-  
-st.header("🔵 Leer productos")
-if len(st.session_state["productos"]) == 0:
-    st.info("No existen productos registrados.")
-
-else:
-    datos = []
-
-    for producto in st.session_state["productos"]:
-        resumen = producto.resumen()
-        datos.append({
-              "Producto": resumen["producto"],
-              "Stock actual": resumen["stock_actual"],
-              "Valor inventario": resumen["valor_inventario"],
-              "Margen unitario": resumen["margen_unitario"],
-              "Margen %": resumen["margen_pct"],
-               "Necesita reposición": resumen["necesita_reposicion"]
-           })
-        df_productos = pd.DataFrame(datos)
-
-        st.dataframe(
-            df_productos,
-            use_container_width=True
-            )
-st.divider()
-  
-st.header("🟡 Actualizar producto")
-
-if len(st.session_state.productos) == 0:
-
-        st.info(
-            "Primero debe crear al menos un producto."
-        )
-
-else:
-
-        nombres_productos = [
-            producto.nombre
-            for producto in st.session_state.productos
-        ]
-
-        producto_seleccionado = st.selectbox(
-            "Seleccione el producto que desea actualizar:",
-            nombres_productos,
-            key="actualizar_producto"
-        )
-
-        indice = nombres_productos.index(
-            producto_seleccionado
-        )
-
-        producto = st.session_state.productos[indice]
-
-        nuevo_nombre = st.text_input(
-            "Nombre",
-            value=producto.nombre,
-            key="actualizar_nombre"
-        )
-
-        nuevo_costo = st.number_input(
-            "Costo unitario",
-            min_value=0.01,
-            value=float(producto.costo_unitario),
-            step=0.01,
-            key="actualizar_costo"
-        )
-
-        nuevo_precio = st.number_input(
-            "Precio unitario",
-            min_value=0.01,
-            value=float(producto.precio_unitario),
-            step=0.01,
-            key="actualizar_precio"
-        )
-
-        nuevo_stock = st.number_input(
-            "Stock actual",
-            min_value=0,
-            value=int(producto.stock_actual),
-            step=1,
-            key="actualizar_stock"
-        )
-
-        nuevo_stock_minimo = st.number_input(
-            "Stock mínimo",
-            min_value=0,
-            value=int(producto.stock_minimo),
-            step=1,
-            key="actualizar_stock_minimo"
-        )
-
-
-
-
+                # Check for duplicate product names (optional, but good practice)
+                if any(p.nombre == nombre for p in st.session_state.productos):
+                    st.error(f"Ya existe un producto con el nombre '{nombre}'. Por favor, use un nombre diferente o actualice el producto existente.")
+                else:
+                    nuevo_producto = InventarioProducto(nombre, costo_unitario, precio_unitario, stock_actual, stock_minimo)
+                    st.session_state.productos.append(nuevo_producto)
+                    st.success(f"Producto '{nombre}' creado exitosamente!")
+            except ValueError as e:
+                st.error(f"Error al crear producto: {e}")
 
 
    
