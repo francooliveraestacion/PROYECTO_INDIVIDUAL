@@ -234,7 +234,7 @@ else:
                     stock_minimo
                 )
 
-                st.session_state.productos.append(nuevo_producto )
+                st.session_state.productos.append(nuevo_producto)
 
                 st.success(f"Producto '{nombre}' creado correctamente.")
             except ValueError as error:
