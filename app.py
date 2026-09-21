@@ -237,7 +237,7 @@ else:
                 st.session_state.productos.append(nuevo_producto )
 
                 st.success(f"Producto '{nombre}' creado correctamente.")
-              except ValueError as error:
+            except ValueError as error:
                 st.error(f"Error al crear el producto: {error}" )
 
 
