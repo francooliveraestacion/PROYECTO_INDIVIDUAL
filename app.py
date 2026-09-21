@@ -315,7 +315,7 @@ else:
     # ---------------------------------------------------------
     # UPDATE - Actualizar producto
     # ---------------------------------------------------------
-    def actualizar_producto_form():
+  def actualizar_producto_form():
         st.header("3. Actualizar producto")
 
         if not st.session_state.productos:
