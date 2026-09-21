@@ -178,7 +178,6 @@ else:
   st.title("📦 Ejercicio 4 - Gestión de Inventario")
   if "productos" not in st.session_state:
     st.session_state.productos = []
-  st.sidebar.title("Menú")
   contenido = st.sidebar.selectbox("Seleccione una opción:",[ "Home", ])
  
 
