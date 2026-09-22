@@ -5,6 +5,7 @@ from libreria_funciones_proyecto1 import calcular_imc
 from librería_clases_proyecto1 import InventarioProducto, validar_positivo
 
 st.title("👨🏻‍💻Proyecto Individual📈")
+st.image("foto.png")
 st.sidebar.title("🏡Contenido")
 contenido=st.sidebar.selectbox("",["Home","Ejercicio 1","Ejercicio 2",
                      "Ejercicio 3","Ejercicio 4"])
