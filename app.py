@@ -136,7 +136,7 @@ elif contenido ==("Ejercicio 2"):
       
 elif contenido ==("Ejercicio 3"):
   st.write("✅Te encuentras en el modulo de Ejercicio 3")
-  st.title("Uso de funciones desde una librería externa")
+  st.title("🗃️Uso de funciones desde una librería externa")
   if "historial" not in st.session_state: st.session_state.historial = []
   st.header("1. Selección de función")
   funcion_seleccionada = st.selectbox( "Seleccione la función que desea ejecutar:", [ "Calcular IMC" ] )
