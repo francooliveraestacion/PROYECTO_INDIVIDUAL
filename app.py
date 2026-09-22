@@ -22,7 +22,7 @@ automatización y mejora de procesos.
   st.write("""
 El proyecto consiste en desarrollar una aplicación web utilizando
 Streamlit para presentar y analizar indicadores relacionados con
-el proceso de despacho. La aplicación busca facilitar la visualización
+el proceso . La aplicación busca facilitar la visualización
 de información y el seguimiento de los principales indicadores.
 """)
   st.subheader("Tecnologias utilizadas")
@@ -34,7 +34,7 @@ de información y el seguimiento de los principales indicadores.
 """)
 elif contenido ==("Ejercicio 1"):
     st.write("✅Te encuentras en el modulo de Ejercicio 1")
-    st.subheader("Flujo de caja")
+    st.subheader("💵Flujo de caja")
 
     st.markdown(
         """
@@ -110,7 +110,7 @@ elif contenido ==("Ejercicio 1"):
 
 elif contenido ==("Ejercicio 2"):
   st.write("✅Te encuentras en el modulo de Ejerccio 2")
-  st.title("Registro de productos")
+  st.title("📠Registro de productos")
   if "registros" not in st.session_state:
     st.session_state.registros = np.empty((0, 5), dtype=object)
     st.subheader("Registro de producto")
